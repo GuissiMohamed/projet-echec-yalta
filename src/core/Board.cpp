@@ -39,3 +39,23 @@ const std::vector<Square>& Board::getSquares() const
 {
     return m_squares;
 }
+
+int Board::getRow(int id) const
+{
+    return id / 12;
+}
+
+int Board::getCol(int id) const
+{
+    return id % 12;
+}
+
+int Board::toIndex(int row, int col) const
+{
+    return row * 12 + col;
+}
+
+bool Board::isValid(int row, int col) const
+{
+    return row >= 0 && row < 8 && col >= 0 && col < 12;
+}

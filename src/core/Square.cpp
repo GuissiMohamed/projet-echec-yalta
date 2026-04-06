@@ -1,5 +1,4 @@
 #include "core/Square.hpp"
-#include "core/Piece.hpp"
 
 Square::Square(int id)
     : m_id(id), m_piece(nullptr)

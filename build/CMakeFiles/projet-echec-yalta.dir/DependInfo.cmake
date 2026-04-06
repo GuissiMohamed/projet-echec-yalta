@@ -8,7 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/guississ/projet-echec-yalta/main.cpp" "CMakeFiles/projet-echec-yalta.dir/main.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/main.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/Board.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/Move.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/Piece.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/Player.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/Square.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/main.cpp" "CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

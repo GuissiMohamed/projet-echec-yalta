@@ -72,31 +72,111 @@ include CMakeFiles/projet-echec-yalta.dir/flags.make
 CMakeFiles/projet-echec-yalta.dir/codegen:
 .PHONY : CMakeFiles/projet-echec-yalta.dir/codegen
 
-CMakeFiles/projet-echec-yalta.dir/main.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
-CMakeFiles/projet-echec-yalta.dir/main.cpp.o: /Users/guississ/projet-echec-yalta/main.cpp
-CMakeFiles/projet-echec-yalta.dir/main.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/projet-echec-yalta.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/main.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/main.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/main.cpp.o -c /Users/guississ/projet-echec-yalta/main.cpp
+CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o: /Users/guississ/projet-echec-yalta/src/main.cpp
+CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o -c /Users/guississ/projet-echec-yalta/src/main.cpp
 
-CMakeFiles/projet-echec-yalta.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/main.cpp > CMakeFiles/projet-echec-yalta.dir/main.cpp.i
+CMakeFiles/projet-echec-yalta.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/main.cpp > CMakeFiles/projet-echec-yalta.dir/src/main.cpp.i
 
-CMakeFiles/projet-echec-yalta.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/main.cpp -o CMakeFiles/projet-echec-yalta.dir/main.cpp.s
+CMakeFiles/projet-echec-yalta.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/main.cpp -o CMakeFiles/projet-echec-yalta.dir/src/main.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Square.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Square.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Square.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Square.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Board.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Board.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Board.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Board.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Player.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Player.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Player.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Player.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Move.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Move.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Move.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Move.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Piece.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Piece.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Piece.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Piece.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s
 
 # Object files for target projet-echec-yalta
 projet__echec__yalta_OBJECTS = \
-"CMakeFiles/projet-echec-yalta.dir/main.cpp.o"
+"CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o"
 
 # External object files for target projet-echec-yalta
 projet__echec__yalta_EXTERNAL_OBJECTS =
 
-projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/main.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/build.make
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable projet-echec-yalta"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable projet-echec-yalta"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/projet-echec-yalta.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

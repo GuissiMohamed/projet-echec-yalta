@@ -1,5 +1,4 @@
 #include "core/Player.hpp"
-#include "core/Piece.hpp"
 
 Player::Player(const std::string& name, PlayerColor color)
     : m_name(name), m_color(color)

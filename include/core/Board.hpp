@@ -14,6 +14,11 @@ public:
     int getSquareCount() const;
     const std::vector<Square>& getSquares() const;
 
+    int getRow(int id) const;
+    int getCol(int id) const;
+    int toIndex(int row, int col) const;
+    bool isValid(int row, int col) const;
+
 private:
     std::vector<Square> m_squares;
 };

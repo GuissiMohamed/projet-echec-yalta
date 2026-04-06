@@ -11,6 +11,7 @@ public:
 
     bool isOccupied() const;
     Piece* getPiece() const;
+
     void setPiece(Piece* piece);
     void removePiece();
 

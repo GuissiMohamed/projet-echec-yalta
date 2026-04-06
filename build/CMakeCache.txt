@@ -234,6 +234,15 @@ CMAKE_TAPI:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/tapi
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+YaltaChess_BINARY_DIR:STATIC=/Users/guississ/projet-echec-yalta/build
+
+//Value Computed by CMake
+YaltaChess_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+YaltaChess_SOURCE_DIR:STATIC=/Users/guississ/projet-echec-yalta
+
+//Value Computed by CMake
 projet-echec-yalta_BINARY_DIR:STATIC=/Users/guississ/projet-echec-yalta/build
 
 //Value Computed by CMake

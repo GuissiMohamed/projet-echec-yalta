@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/Users/guississ/projet-echec-yalta/include
 
-CXX_FLAGS = -g
+CXX_FLAGS = -g -std=c++17
 

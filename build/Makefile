@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/guississ/projet-echec-yalta/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/local/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -129,29 +139,149 @@ projet-echec-yalta/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/build
 .PHONY : projet-echec-yalta/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/core/Board.o: src/core/Board.cpp.o
+.PHONY : src/core/Board.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/core/Board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o
+.PHONY : src/core/Board.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/core/Board.i: src/core/Board.cpp.i
+.PHONY : src/core/Board.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/core/Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.i
+.PHONY : src/core/Board.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/core/Board.s: src/core/Board.cpp.s
+.PHONY : src/core/Board.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/core/Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s
+.PHONY : src/core/Board.cpp.s
+
+src/core/Move.o: src/core/Move.cpp.o
+.PHONY : src/core/Move.o
+
+# target to build an object file
+src/core/Move.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o
+.PHONY : src/core/Move.cpp.o
+
+src/core/Move.i: src/core/Move.cpp.i
+.PHONY : src/core/Move.i
+
+# target to preprocess a source file
+src/core/Move.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.i
+.PHONY : src/core/Move.cpp.i
+
+src/core/Move.s: src/core/Move.cpp.s
+.PHONY : src/core/Move.s
+
+# target to generate assembly for a file
+src/core/Move.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.s
+.PHONY : src/core/Move.cpp.s
+
+src/core/Piece.o: src/core/Piece.cpp.o
+.PHONY : src/core/Piece.o
+
+# target to build an object file
+src/core/Piece.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o
+.PHONY : src/core/Piece.cpp.o
+
+src/core/Piece.i: src/core/Piece.cpp.i
+.PHONY : src/core/Piece.i
+
+# target to preprocess a source file
+src/core/Piece.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.i
+.PHONY : src/core/Piece.cpp.i
+
+src/core/Piece.s: src/core/Piece.cpp.s
+.PHONY : src/core/Piece.s
+
+# target to generate assembly for a file
+src/core/Piece.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s
+.PHONY : src/core/Piece.cpp.s
+
+src/core/Player.o: src/core/Player.cpp.o
+.PHONY : src/core/Player.o
+
+# target to build an object file
+src/core/Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o
+.PHONY : src/core/Player.cpp.o
+
+src/core/Player.i: src/core/Player.cpp.i
+.PHONY : src/core/Player.i
+
+# target to preprocess a source file
+src/core/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.i
+.PHONY : src/core/Player.cpp.i
+
+src/core/Player.s: src/core/Player.cpp.s
+.PHONY : src/core/Player.s
+
+# target to generate assembly for a file
+src/core/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.s
+.PHONY : src/core/Player.cpp.s
+
+src/core/Square.o: src/core/Square.cpp.o
+.PHONY : src/core/Square.o
+
+# target to build an object file
+src/core/Square.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o
+.PHONY : src/core/Square.cpp.o
+
+src/core/Square.i: src/core/Square.cpp.i
+.PHONY : src/core/Square.i
+
+# target to preprocess a source file
+src/core/Square.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.i
+.PHONY : src/core/Square.cpp.i
+
+src/core/Square.s: src/core/Square.cpp.s
+.PHONY : src/core/Square.s
+
+# target to generate assembly for a file
+src/core/Square.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.s
+.PHONY : src/core/Square.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -161,10 +291,26 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... projet-echec-yalta"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/core/Board.o"
+	@echo "... src/core/Board.i"
+	@echo "... src/core/Board.s"
+	@echo "... src/core/Move.o"
+	@echo "... src/core/Move.i"
+	@echo "... src/core/Move.s"
+	@echo "... src/core/Piece.o"
+	@echo "... src/core/Piece.i"
+	@echo "... src/core/Piece.s"
+	@echo "... src/core/Player.o"
+	@echo "... src/core/Player.i"
+	@echo "... src/core/Player.s"
+	@echo "... src/core/Square.o"
+	@echo "... src/core/Square.i"
+	@echo "... src/core/Square.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

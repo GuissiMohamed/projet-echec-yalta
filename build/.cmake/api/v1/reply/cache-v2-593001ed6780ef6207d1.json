@@ -1230,6 +1230,42 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "YaltaChess_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/guississ/projet-echec-yalta/build"
+		},
+		{
+			"name" : "YaltaChess_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "YaltaChess_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/guississ/projet-echec-yalta"
+		},
+		{
 			"name" : "projet-echec-yalta_BINARY_DIR",
 			"properties" : 
 			[
