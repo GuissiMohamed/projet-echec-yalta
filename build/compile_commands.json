@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/guississ/projet-echec-yalta/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/projet-echec-yalta.dir/main.cpp.o -c /Users/guississ/projet-echec-yalta/main.cpp",
+  "file": "/Users/guississ/projet-echec-yalta/main.cpp",
+  "output": "CMakeFiles/projet-echec-yalta.dir/main.cpp.o"
+}
+]
