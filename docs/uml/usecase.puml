@@ -1,0 +1,11 @@
+@startuml
+
+actor Player
+
+Player --> (Start Game)
+Player --> (Select Piece)
+Player --> (Move Piece)
+Player --> (Check Game State)
+Player --> (End Turn)
+
+@enduml

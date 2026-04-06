@@ -1,0 +1,12 @@
+@startuml
+
+[*] --> Init
+Init --> Playing
+Playing --> Check
+Check --> Checkmate
+Check --> Playing
+Playing --> Draw
+Checkmate --> [*]
+Draw --> [*]
+
+@enduml

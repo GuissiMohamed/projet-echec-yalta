@@ -1,0 +1,53 @@
+@startuml
+
+class Game {
+    - players : List<Player>
+    - board : Board
+    - currentPlayer : Player
+    + start()
+    + nextTurn()
+}
+
+class Board {
+    - squares : List<Square>
+    + getSquare(id)
+}
+
+class Square {
+    - id : int
+    - piece : Piece
+}
+
+class Player {
+    - name : string
+    - color : string
+    - pieces : List<Piece>
+}
+
+abstract class Piece {
+    - position : Square
+    - owner : Player
+    + getLegalMoves()
+}
+
+class King
+class Queen
+class Rook
+class Bishop
+class Knight
+class Pawn
+
+Piece <|-- King
+Piece <|-- Queen
+Piece <|-- Rook
+Piece <|-- Bishop
+Piece <|-- Knight
+Piece <|-- Pawn
+
+Game --> Board
+Game --> Player
+Board --> Square
+Square --> Piece
+Player --> Piece
+
+@enduml
