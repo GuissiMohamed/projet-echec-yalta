@@ -1,53 +1,65 @@
 @startuml
 
-class Game {
-    - players : List<Player>
-    - board : Board
-    - currentPlayer : Player
-    + start()
-    + nextTurn()
+enum PlayerColor {
+  Red
+  Blue
+  Green
+  None
+}
+
+enum PieceType {
+  King
+  Queen
+  Rook
+  Bishop
+  Knight
+  Pawn
+  None
 }
 
 class Board {
-    - squares : List<Square>
-    + getSquare(id)
+  - m_squares : vector<Square>
+  + Board(squareCount : int = 96)
+  + getSquare(id : int) : Square*
+  + getSquareCount() : int
 }
 
 class Square {
-    - id : int
-    - piece : Piece
+  - m_id : int
+  - m_piece : Piece*
+  + Square(id : int = -1)
+  + getId() : int
+  + isOccupied() : bool
+  + getPiece() : Piece*
+  + setPiece(piece : Piece*)
+  + removePiece()
 }
 
 class Player {
-    - name : string
-    - color : string
-    - pieces : List<Piece>
+  - m_name : string
+  - m_color : PlayerColor
+  - m_pieces : vector<Piece*>
+  + Player(name : string, color : PlayerColor)
+  + getName() : string
+  + getColor() : PlayerColor
+  + addPiece(piece : Piece*)
 }
 
-abstract class Piece {
-    - position : Square
-    - owner : Player
-    + getLegalMoves()
+class Piece {
+  - m_type : PieceType
+  - m_owner : Player*
+  - m_square : Square*
+  + Piece(type : PieceType, owner : Player*, square : Square*)
+  + getType() : PieceType
+  + getOwner() : Player*
+  + getSquare() : Square*
+  + setSquare(square : Square*)
 }
 
-class King
-class Queen
-class Rook
-class Bishop
-class Knight
-class Pawn
-
-Piece <|-- King
-Piece <|-- Queen
-Piece <|-- Rook
-Piece <|-- Bishop
-Piece <|-- Knight
-Piece <|-- Pawn
-
-Game --> Board
-Game --> Player
-Board --> Square
+Board *-- Square
 Square --> Piece
 Player --> Piece
+Piece --> Player
+Piece --> Square
 
 @enduml
