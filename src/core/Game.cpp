@@ -45,6 +45,8 @@ Game::Game()
     m_players.emplace_back(std::make_unique<Player>("Charlie", PlayerColor::Green));
 }
 
+Game::~Game() = default;
+
 Board& Game::getBoard()
 {
     return m_board;

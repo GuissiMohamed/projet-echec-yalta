@@ -17,6 +17,7 @@ class Game
 {
 public:
     Game();
+    ~Game();
 
     Board& getBoard();
     const Board& getBoard() const;

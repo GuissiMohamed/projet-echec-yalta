@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.25)
 project(projet-echec-yalta LANGUAGES CXX)
 
@@ -16,6 +15,8 @@ add_executable(projet-echec-yalta
     src/core/Move.cpp
     src/core/Piece.cpp
     src/core/Game.cpp
+    src/mvc/ConsoleView.cpp
+    src/mvc/GameController.cpp
 )
 
 enable_testing()
