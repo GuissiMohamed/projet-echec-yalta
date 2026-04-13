@@ -30,9 +30,39 @@ const Square* Board::getSquare(int id) const
     return &m_squares[id];
 }
 
+Square* Board::getSquare(int row, int col)
+{
+    if (!isValid(row, col))
+    {
+        return nullptr;
+    }
+
+    return getSquare(toIndex(row, col));
+}
+
+const Square* Board::getSquare(int row, int col) const
+{
+    if (!isValid(row, col))
+    {
+        return nullptr;
+    }
+
+    return getSquare(toIndex(row, col));
+}
+
 int Board::getSquareCount() const
 {
     return static_cast<int>(m_squares.size());
+}
+
+int Board::getRowCount() const
+{
+    return kRows;
+}
+
+int Board::getColCount() const
+{
+    return kCols;
 }
 
 const std::vector<Square>& Board::getSquares() const
@@ -42,20 +72,20 @@ const std::vector<Square>& Board::getSquares() const
 
 int Board::getRow(int id) const
 {
-    return id / 12;
+    return id / kCols;
 }
 
 int Board::getCol(int id) const
 {
-    return id % 12;
+    return id % kCols;
 }
 
 int Board::toIndex(int row, int col) const
 {
-    return row * 12 + col;
+    return row * kCols + col;
 }
 
 bool Board::isValid(int row, int col) const
 {
-    return row >= 0 && row < 8 && col >= 0 && col < 12;
+    return row >= 0 && row < kRows && col >= 0 && col < kCols;
 }

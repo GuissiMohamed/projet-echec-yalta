@@ -1,16 +1,27 @@
 #include "core/Piece.hpp"
+
 #include "core/Board.hpp"
 #include "core/Player.hpp"
 #include "core/Square.hpp"
 
 Piece::Piece(PieceType type, Player* owner, Square* square, Board* board)
-    : m_type(type), m_owner(owner), m_square(square), m_board(board)
+    : m_type(type),
+      m_owner(owner),
+      m_square(square),
+      m_board(board),
+      m_hasMoved(false),
+      m_isCaptured(false)
 {
 }
 
 PieceType Piece::getType() const
 {
     return m_type;
+}
+
+void Piece::setType(PieceType type)
+{
+    m_type = type;
 }
 
 Player* Piece::getOwner() const
@@ -33,11 +44,78 @@ void Piece::setSquare(Square* square)
     m_square = square;
 }
 
-std::vector<Move> Piece::getLegalMoves() const
+bool Piece::hasMoved() const
+{
+    return m_hasMoved;
+}
+
+void Piece::setHasMoved(bool hasMoved)
+{
+    m_hasMoved = hasMoved;
+}
+
+bool Piece::isCaptured() const
+{
+    return m_isCaptured;
+}
+
+void Piece::setCaptured(bool captured)
+{
+    m_isCaptured = captured;
+}
+
+void Piece::addSlidingMoves(std::vector<Move>& moves, const int directions[][2], int directionCount) const
+{
+    if (!m_square || !m_board || !m_owner)
+    {
+        return;
+    }
+
+    const int row = m_board->getRow(m_square->getId());
+    const int col = m_board->getCol(m_square->getId());
+
+    for (int i = 0; i < directionCount; ++i)
+    {
+        int currentRow = row;
+        int currentCol = col;
+
+        while (true)
+        {
+            currentRow += directions[i][0];
+            currentCol += directions[i][1];
+
+            if (!m_board->isValid(currentRow, currentCol))
+            {
+                break;
+            }
+
+            Square* target = m_board->getSquare(currentRow, currentCol);
+            if (target == nullptr)
+            {
+                break;
+            }
+
+            if (!target->isOccupied())
+            {
+                moves.emplace_back(m_square, target, MoveType::Normal);
+                continue;
+            }
+
+            if (target->getPiece()->getOwner() != m_owner)
+            {
+                moves.emplace_back(m_square, target, MoveType::Capture);
+            }
+
+            break;
+        }
+    }
+}
+
+std::vector<Move> Piece::getPseudoLegalMoves() const
 {
     std::vector<Move> moves;
 
-    if (!m_square || !m_board)
+    if (!m_square || !m_board || !m_owner || m_isCaptured)
     {
         return moves;
     }
@@ -57,20 +135,32 @@ std::vector<Move> Piece::getLegalMoves() const
                     continue;
                 }
 
-                const int nr = row + dr;
-                const int nc = col + dc;
+                const int nextRow = row + dr;
+                const int nextCol = col + dc;
 
-                if (m_board->isValid(nr, nc))
+                if (!m_board->isValid(nextRow, nextCol))
                 {
-                    Square* target = m_board->getSquare(m_board->toIndex(nr, nc));
+                    continue;
+                }
 
-                    if (!target->isOccupied() || target->getPiece()->getOwner() != m_owner)
-                    {
-                        moves.emplace_back(m_square, target);
-                    }
+                Square* target = m_board->getSquare(nextRow, nextCol);
+                if (target == nullptr)
+                {
+                    continue;
+                }
+
+                if (!target->isOccupied())
+                {
+                    moves.emplace_back(m_square, target, MoveType::Normal);
+                }
+                else if (target->getPiece()->getOwner() != m_owner)
+                {
+                    moves.emplace_back(m_square, target, MoveType::Capture);
                 }
             }
         }
+
+        return moves;
     }
 
     if (m_type == PieceType::Rook)
@@ -82,37 +172,8 @@ std::vector<Move> Piece::getLegalMoves() const
             {0, 1}
         };
 
-        for (const auto& direction : directions)
-        {
-            int nr = row;
-            int nc = col;
-
-            while (true)
-            {
-                nr += direction[0];
-                nc += direction[1];
-
-                if (!m_board->isValid(nr, nc))
-                {
-                    break;
-                }
-
-                Square* target = m_board->getSquare(m_board->toIndex(nr, nc));
-
-                if (!target->isOccupied())
-                {
-                    moves.emplace_back(m_square, target);
-                }
-                else
-                {
-                    if (target->getPiece()->getOwner() != m_owner)
-                    {
-                        moves.emplace_back(m_square, target);
-                    }
-                    break;
-                }
-            }
-        }
+        addSlidingMoves(moves, directions, 4);
+        return moves;
     }
 
     if (m_type == PieceType::Bishop)
@@ -124,67 +185,8 @@ std::vector<Move> Piece::getLegalMoves() const
             {1, 1}
         };
 
-        for (const auto& direction : directions)
-        {
-            int nr = row;
-            int nc = col;
-
-            while (true)
-            {
-                nr += direction[0];
-                nc += direction[1];
-
-                if (!m_board->isValid(nr, nc))
-                {
-                    break;
-                }
-
-                Square* target = m_board->getSquare(m_board->toIndex(nr, nc));
-
-                if (!target->isOccupied())
-                {
-                    moves.emplace_back(m_square, target);
-                }
-                else
-                {
-                    if (target->getPiece()->getOwner() != m_owner)
-                    {
-                        moves.emplace_back(m_square, target);
-                    }
-                    break;
-                }
-            }
-        }
-    }
-
-    if (m_type == PieceType::Knight)
-    {
-        const int offsets[8][2] = {
-            {-2, -1},
-            {-2, 1},
-            {2, -1},
-            {2, 1},
-            {-1, -2},
-            {-1, 2},
-            {1, -2},
-            {1, 2}
-        };
-
-        for (const auto& offset : offsets)
-        {
-            const int nr = row + offset[0];
-            const int nc = col + offset[1];
-
-            if (m_board->isValid(nr, nc))
-            {
-                Square* target = m_board->getSquare(m_board->toIndex(nr, nc));
-
-                if (!target->isOccupied() || target->getPiece()->getOwner() != m_owner)
-                {
-                    moves.emplace_back(m_square, target);
-                }
-            }
-        }
+        addSlidingMoves(moves, directions, 4);
+        return moves;
     }
 
     if (m_type == PieceType::Queen)
@@ -194,84 +196,94 @@ std::vector<Move> Piece::getLegalMoves() const
             {-1, -1}, {-1, 1}, {1, -1}, {1, 1}
         };
 
-        for (const auto& direction : directions)
+        addSlidingMoves(moves, directions, 8);
+        return moves;
+    }
+
+    if (m_type == PieceType::Knight)
+    {
+        const int offsets[8][2] = {
+            {-2, -1}, {-2, 1},
+            {-1, -2}, {-1, 2},
+            {1, -2}, {1, 2},
+            {2, -1}, {2, 1}
+        };
+
+        for (const auto& offset : offsets)
         {
-            int nr = row;
-            int nc = col;
+            const int nextRow = row + offset[0];
+            const int nextCol = col + offset[1];
 
-            while (true)
+            if (!m_board->isValid(nextRow, nextCol))
             {
-                nr += direction[0];
-                nc += direction[1];
+                continue;
+            }
 
-                if (!m_board->isValid(nr, nc))
-                {
-                    break;
-                }
+            Square* target = m_board->getSquare(nextRow, nextCol);
+            if (target == nullptr)
+            {
+                continue;
+            }
 
-                Square* target = m_board->getSquare(m_board->toIndex(nr, nc));
-
-                if (!target->isOccupied())
-                {
-                    moves.emplace_back(m_square, target);
-                }
-                else
-                {
-                    if (target->getPiece()->getOwner() != m_owner)
-                    {
-                        moves.emplace_back(m_square, target);
-                    }
-                    break;
-                }
+            if (!target->isOccupied())
+            {
+                moves.emplace_back(m_square, target, MoveType::Normal);
+            }
+            else if (target->getPiece()->getOwner() != m_owner)
+            {
+                moves.emplace_back(m_square, target, MoveType::Capture);
             }
         }
+
+        return moves;
     }
 
     if (m_type == PieceType::Pawn)
     {
-        int direction = 1;
+        const auto [forwardRow, forwardCol] = m_owner->getForwardDirection();
+        const int oneStepRow = row + forwardRow;
+        const int oneStepCol = col + forwardCol;
 
-        if (m_owner->getColor() == PlayerColor::Red)
+        if (m_board->isValid(oneStepRow, oneStepCol))
         {
-            direction = -1;
-        }
-        else if (m_owner->getColor() == PlayerColor::Blue)
-        {
-            direction = 1;
-        }
-        else if (m_owner->getColor() == PlayerColor::Green)
-        {
-            direction = -1;
-        }
-
-        const int forwardRow = row + direction;
-        const int forwardCol = col;
-
-        if (m_board->isValid(forwardRow, forwardCol))
-        {
-            Square* forward = m_board->getSquare(m_board->toIndex(forwardRow, forwardCol));
-
-            if (!forward->isOccupied())
+            Square* oneStepTarget = m_board->getSquare(oneStepRow, oneStepCol);
+            if (oneStepTarget != nullptr && !oneStepTarget->isOccupied())
             {
-                moves.emplace_back(m_square, forward);
-            }
-        }
+                moves.emplace_back(m_square, oneStepTarget, MoveType::Normal);
 
-        for (int dc : {-1, 1})
-        {
-            const int captureRow = row + direction;
-            const int captureCol = col + dc;
+                const int twoStepRow = row + (2 * forwardRow);
+                const int twoStepCol = col + (2 * forwardCol);
 
-            if (m_board->isValid(captureRow, captureCol))
-            {
-                Square* target = m_board->getSquare(m_board->toIndex(captureRow, captureCol));
-
-                if (target->isOccupied() && target->getPiece()->getOwner() != m_owner)
+                if (!m_hasMoved && m_board->isValid(twoStepRow, twoStepCol))
                 {
-                    moves.emplace_back(m_square, target);
+                    Square* twoStepTarget = m_board->getSquare(twoStepRow, twoStepCol);
+                    if (twoStepTarget != nullptr && !twoStepTarget->isOccupied())
+                    {
+                        moves.emplace_back(m_square, twoStepTarget, MoveType::Normal);
+                    }
                 }
             }
         }
+
+        const auto captureDirections = m_owner->getPawnCaptureDirections();
+        for (const auto& [captureRowDelta, captureColDelta] : captureDirections)
+        {
+            const int captureRow = row + captureRowDelta;
+            const int captureCol = col + captureColDelta;
+
+            if (!m_board->isValid(captureRow, captureCol))
+            {
+                continue;
+            }
+
+            Square* target = m_board->getSquare(captureRow, captureCol);
+            if (target != nullptr && target->isOccupied() && target->getPiece()->getOwner() != m_owner)
+            {
+                moves.emplace_back(m_square, target, MoveType::Capture);
+            }
+        }
+
+        return moves;
     }
 
     return moves;

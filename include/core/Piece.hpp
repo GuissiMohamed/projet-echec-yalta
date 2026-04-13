@@ -15,17 +15,29 @@ public:
     virtual ~Piece() = default;
 
     PieceType getType() const;
+    void setType(PieceType type);
+
     Player* getOwner() const;
     Square* getSquare() const;
     Board* getBoard() const;
 
     void setSquare(Square* square);
 
-    std::vector<Move> getLegalMoves() const;
+    bool hasMoved() const;
+    void setHasMoved(bool hasMoved);
+
+    bool isCaptured() const;
+    void setCaptured(bool captured);
+
+    std::vector<Move> getPseudoLegalMoves() const;
 
 private:
+    void addSlidingMoves(std::vector<Move>& moves, const int directions[][2], int directionCount) const;
+
     PieceType m_type;
     Player* m_owner;
     Square* m_square;
     Board* m_board;
+    bool m_hasMoved;
+    bool m_isCaptured;
 };
