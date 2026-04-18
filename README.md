@@ -17,3 +17,9 @@ Implémentation du jeu d’échecs Yalta à 3 joueurs.
 ## Avancement
 - S01 : Initialisation
 - S02 : UML et analyse
+
+
+rm -rf build
+cmake -S . -B build
+cmake --build build
+./build/projet-echec-yalta
