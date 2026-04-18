@@ -5,16 +5,22 @@
 #include <SFML/Graphics.hpp>
 
 #include "core/Piece.hpp"
+#include "core/Player.hpp"
 #include "core/Square.hpp"
 #include "mvc/SFMLView.hpp"
 #include "patterns/MoveCommand.hpp"
 
-SFMLGameController::SFMLGameController(Game& game, SFMLView& view)
+SFMLGameController::SFMLGameController(
+    Game& game,
+    SFMLView& view,
+    const SFMLControllerConfig& config)
     : m_game(game),
       m_view(view),
+      m_config(config),
       m_selectedSquare(nullptr),
-      m_blueAI(2),
-      m_greenAI(2)
+      m_redAI(config.aiDepth, config.aiThreadCount),
+      m_blueAI(config.aiDepth, config.aiThreadCount),
+      m_greenAI(config.aiDepth, config.aiThreadCount)
 {
 }
 
@@ -77,6 +83,11 @@ void SFMLGameController::selectSquare(Square* square)
 {
     resetSelection();
 
+    if (isSessionFinished())
+    {
+        return;
+    }
+
     if (square == nullptr || !square->isOccupied())
     {
         return;
@@ -99,6 +110,11 @@ void SFMLGameController::selectSquare(Square* square)
         return;
     }
 
+    if (!isHumanTurn())
+    {
+        return;
+    }
+
     m_selectedSquare = square;
     m_selectedMoves = m_game.getLegalMovesForPiece(*piece);
 
@@ -110,11 +126,16 @@ void SFMLGameController::selectSquare(Square* square)
 
 bool SFMLGameController::tryPlayMoveTo(int targetSquareId)
 {
+    if (isSessionFinished())
+    {
+        return false;
+    }
+
     std::vector<Move> destinationMatches;
 
     for (const Move& move : m_selectedMoves)
     {
-        if (move.getTo() != nullptr && move.getTo()->getId() == targetSquareId)
+        if (move.getToId() == targetSquareId)
         {
             destinationMatches.push_back(move);
         }
@@ -149,6 +170,12 @@ bool SFMLGameController::tryPlayMoveTo(int targetSquareId)
 
 void SFMLGameController::handleBoardClick(int squareId)
 {
+    if (isSessionFinished())
+    {
+        resetSelection();
+        return;
+    }
+
     if (!isHumanTurn())
     {
         return;
@@ -209,13 +236,53 @@ bool SFMLGameController::isHumanTurn() const
         return false;
     }
 
-    return currentPlayer->getColor() == PlayerColor::Red;
+    return !isAIControlled(currentPlayer->getColor());
+}
+
+bool SFMLGameController::isAIControlled(PlayerColor color) const
+{
+    switch (color)
+    {
+        case PlayerColor::Red:
+            return m_config.redMode == PlayerControlMode::AI;
+        case PlayerColor::Blue:
+            return m_config.blueMode == PlayerControlMode::AI;
+        case PlayerColor::Green:
+            return m_config.greenMode == PlayerControlMode::AI;
+        default:
+            return false;
+    }
+}
+
+AlphaBetaAI* SFMLGameController::getAIFor(PlayerColor color)
+{
+    switch (color)
+    {
+        case PlayerColor::Red:
+            return &m_redAI;
+        case PlayerColor::Blue:
+            return &m_blueAI;
+        case PlayerColor::Green:
+            return &m_greenAI;
+        default:
+            return nullptr;
+    }
 }
 
 void SFMLGameController::processAITurn()
 {
+    if (isSessionFinished())
+    {
+        return;
+    }
+
     Player* currentPlayer = m_game.getCurrentPlayer();
     if (currentPlayer == nullptr)
+    {
+        return;
+    }
+
+    if (!isAIControlled(currentPlayer->getColor()))
     {
         return;
     }
@@ -225,28 +292,37 @@ void SFMLGameController::processAITurn()
         return;
     }
 
-    Move move;
-
-    if (currentPlayer->getColor() == PlayerColor::Blue)
-    {
-        move = m_blueAI.chooseBestMove(m_game, PlayerColor::Blue);
-    }
-    else if (currentPlayer->getColor() == PlayerColor::Green)
-    {
-        move = m_greenAI.chooseBestMove(m_game, PlayerColor::Green);
-    }
-    else
+    AlphaBetaAI* ai = getAIFor(currentPlayer->getColor());
+    if (ai == nullptr)
     {
         return;
     }
 
-    if (move.getFrom() != nullptr && move.getTo() != nullptr)
+    const Move move = ai->chooseBestMove(m_game, currentPlayer->getColor());
+
+    if (move.isValid())
     {
         MoveCommand command(m_game, move);
         command.execute();
     }
 
     m_aiClock.restart();
+}
+
+bool SFMLGameController::isSessionFinished() const
+{
+    const GameState state = m_game.getState();
+
+    return state == GameState::Draw
+        || state == GameState::Stalemate
+        || state == GameState::WinByElimination;
+}
+
+void SFMLGameController::updateWindowTitle() const
+{
+    // Desactive temporairement sur macOS / SFML 3 :
+    // certaines mises a jour dynamiques du titre provoquent
+    // un crash Cocoa (NSWindow setTitle: aString != nil).
 }
 
 void SFMLGameController::run()
@@ -270,6 +346,11 @@ void SFMLGameController::run()
                 {
                     window.close();
                 }
+
+                if (keyPressed->code == sf::Keyboard::Key::R && isSessionFinished())
+                {
+                    window.close();
+                }
             }
 
             if (const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>())
@@ -277,7 +358,7 @@ void SFMLGameController::run()
                 if (mousePressed->button == sf::Mouse::Button::Left)
                 {
                     const sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-                    const int squareId = m_view.squareIdFromPixel(mousePosition);
+                    const int squareId = m_view.squareIdFromPixel(m_game, mousePosition);
                     handleBoardClick(squareId);
                 }
 
@@ -288,10 +369,7 @@ void SFMLGameController::run()
             }
         }
 
-        if (!isHumanTurn())
-        {
-            processAITurn();
-        }
+        processAITurn();
 
         m_view.render(m_game, m_selectedSquare, m_selectedMoves);
     }
