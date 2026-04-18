@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iomanip>
+#include <memory>
 #include <sstream>
 
 #include "core/Piece.hpp"
@@ -43,6 +44,64 @@ Game::Game()
     m_players.emplace_back(std::make_unique<Player>("Alice", PlayerColor::Red));
     m_players.emplace_back(std::make_unique<Player>("Bob", PlayerColor::Blue));
     m_players.emplace_back(std::make_unique<Player>("Charlie", PlayerColor::Green));
+}
+
+Game::Game(const Game& other)
+    : m_board(Board::kSquareCount),
+      m_currentPlayerIndex(other.m_currentPlayerIndex),
+      m_state(other.m_state),
+      m_winner(other.m_winner),
+      m_lastEvent(other.m_lastEvent),
+      m_enPassantTargetSquareId(other.m_enPassantTargetSquareId),
+      m_enPassantVictimSquareId(other.m_enPassantVictimSquareId),
+      m_enPassantRemainingResponses(other.m_enPassantRemainingResponses)
+{
+    for (const auto& player : other.m_players)
+    {
+        m_players.emplace_back(std::make_unique<Player>(player->getName(), player->getColor()));
+        m_players.back()->setEliminated(player->isEliminated());
+    }
+
+    for (const auto& piece : other.m_pieces)
+    {
+        if (piece == nullptr)
+        {
+            continue;
+        }
+
+        Player* newOwner = getPlayer(piece->getOwner()->getColor());
+        Square* newSquare = nullptr;
+
+        if (piece->getSquare() != nullptr)
+        {
+            newSquare = m_board.getSquare(piece->getSquare()->getId());
+        }
+
+        m_pieces.emplace_back(std::make_unique<Piece>(
+            piece->getType(),
+            newOwner,
+            newSquare,
+            &m_board));
+
+        Piece* newPiece = m_pieces.back().get();
+        newPiece->setHasMoved(piece->hasMoved());
+        newPiece->setCaptured(piece->isCaptured());
+
+        if (piece->getSquare() == nullptr)
+        {
+            newPiece->setSquare(nullptr);
+        }
+
+        if (newSquare != nullptr && !piece->isCaptured())
+        {
+            newSquare->setPiece(newPiece);
+        }
+
+        if (newOwner != nullptr)
+        {
+            newOwner->addPiece(newPiece);
+        }
+    }
 }
 
 Game::~Game() = default;
@@ -884,7 +943,7 @@ void Game::eliminateCheckmatedPlayers()
     for (Player* player : playersToEliminate)
     {
         eliminatePlayer(*player);
-        message << " | Elimination de " << player->getName() << " (roi maté).";
+        message << " | Elimination de " << player->getName() << " (roi mate).";
     }
 
     m_lastEvent = message.str();
@@ -922,7 +981,7 @@ void Game::refreshGameStateAfterMove()
         m_winner = (winner != nullptr) ? winner->getColor() : PlayerColor::None;
         if (winner != nullptr)
         {
-            m_lastEvent += " | Victoire par élimination de " + winner->getName() + ".";
+            m_lastEvent += " | Victoire par elimination de " + winner->getName() + ".";
         }
         return;
     }
@@ -931,7 +990,7 @@ void Game::refreshGameStateAfterMove()
     {
         m_state = GameState::Draw;
         m_winner = PlayerColor::None;
-        m_lastEvent += " | Nulle simplifiée : il ne reste que des rois.";
+        m_lastEvent += " | Nulle simplifiee : il ne reste que des rois.";
         return;
     }
 
@@ -950,7 +1009,7 @@ void Game::refreshGameStateAfterMove()
     {
         m_state = GameState::Stalemate;
         m_winner = PlayerColor::None;
-        m_lastEvent += " | Pat / nulle : " + currentPlayer->getName() + " n'a aucun coup légal.";
+        m_lastEvent += " | Pat / nulle : " + currentPlayer->getName() + " n'a aucun coup legal.";
         return;
     }
 
@@ -958,7 +1017,7 @@ void Game::refreshGameStateAfterMove()
     {
         m_state = GameState::Check;
         m_winner = PlayerColor::None;
-        m_lastEvent += " | Alerte : " + currentPlayer->getName() + " est en échec.";
+        m_lastEvent += " | Alerte : " + currentPlayer->getName() + " est en echec.";
         return;
     }
 

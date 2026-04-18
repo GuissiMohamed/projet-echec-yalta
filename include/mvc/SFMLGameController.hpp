@@ -1,7 +1,9 @@
 #pragma once
 
+#include <SFML/System/Clock.hpp>
 #include <vector>
 
+#include "ai/AlphaBetaAI.hpp"
 #include "core/Game.hpp"
 #include "core/Move.hpp"
 
@@ -24,10 +26,16 @@ private:
     void selectSquare(Square* square);
     void handleBoardClick(int squareId);
     bool tryPlayMoveTo(int targetSquareId);
+    bool isHumanTurn() const;
+    void processAITurn();
 
     Game& m_game;
     SFMLView& m_view;
 
     Square* m_selectedSquare;
     std::vector<Move> m_selectedMoves;
+
+    AlphaBetaAI m_blueAI;
+    AlphaBetaAI m_greenAI;
+    sf::Clock m_aiClock;
 };

@@ -12,7 +12,9 @@
 SFMLGameController::SFMLGameController(Game& game, SFMLView& view)
     : m_game(game),
       m_view(view),
-      m_selectedSquare(nullptr)
+      m_selectedSquare(nullptr),
+      m_blueAI(2),
+      m_greenAI(2)
 {
 }
 
@@ -125,9 +127,6 @@ bool SFMLGameController::tryPlayMoveTo(int targetSquareId)
 
     Move selectedMove = destinationMatches.front();
 
-    // Simplification temporaire S08 :
-    // si plusieurs promotions existent sur la meme case,
-    // on choisit automatiquement la reine.
     if (destinationMatches.size() > 1)
     {
         for (const Move& move : destinationMatches)
@@ -150,6 +149,11 @@ bool SFMLGameController::tryPlayMoveTo(int targetSquareId)
 
 void SFMLGameController::handleBoardClick(int squareId)
 {
+    if (!isHumanTurn())
+    {
+        return;
+    }
+
     if (squareId < 0)
     {
         resetSelection();
@@ -197,6 +201,54 @@ void SFMLGameController::handleBoardClick(int squareId)
     }
 }
 
+bool SFMLGameController::isHumanTurn() const
+{
+    const Player* currentPlayer = m_game.getCurrentPlayer();
+    if (currentPlayer == nullptr)
+    {
+        return false;
+    }
+
+    return currentPlayer->getColor() == PlayerColor::Red;
+}
+
+void SFMLGameController::processAITurn()
+{
+    Player* currentPlayer = m_game.getCurrentPlayer();
+    if (currentPlayer == nullptr)
+    {
+        return;
+    }
+
+    if (m_aiClock.getElapsedTime() < sf::seconds(0.35f))
+    {
+        return;
+    }
+
+    Move move;
+
+    if (currentPlayer->getColor() == PlayerColor::Blue)
+    {
+        move = m_blueAI.chooseBestMove(m_game, PlayerColor::Blue);
+    }
+    else if (currentPlayer->getColor() == PlayerColor::Green)
+    {
+        move = m_greenAI.chooseBestMove(m_game, PlayerColor::Green);
+    }
+    else
+    {
+        return;
+    }
+
+    if (move.getFrom() != nullptr && move.getTo() != nullptr)
+    {
+        MoveCommand command(m_game, move);
+        command.execute();
+    }
+
+    m_aiClock.restart();
+}
+
 void SFMLGameController::run()
 {
     setupDefaultPosition();
@@ -234,6 +286,11 @@ void SFMLGameController::run()
                     resetSelection();
                 }
             }
+        }
+
+        if (!isHumanTurn())
+        {
+            processAITurn();
         }
 
         m_view.render(m_game, m_selectedSquare, m_selectedMoves);

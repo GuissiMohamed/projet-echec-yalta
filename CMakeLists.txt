@@ -24,6 +24,7 @@ add_executable(projet-echec-yalta
     src/patterns/MoveCommand.cpp
     src/strategy/HumanConsoleStrategy.cpp
     src/strategy/FirstLegalMoveStrategy.cpp
+    src/ai/AlphaBetaAI.cpp
 )
 
 target_link_libraries(projet-echec-yalta PRIVATE SFML::Graphics)

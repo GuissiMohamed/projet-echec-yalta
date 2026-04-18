@@ -17,7 +17,10 @@ class Game
 {
 public:
     Game();
+    Game(const Game& other);
     ~Game();
+
+    Game& operator=(const Game&) = delete;
 
     Board& getBoard();
     const Board& getBoard() const;
