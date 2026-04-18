@@ -1,31 +1,12 @@
-#include <memory>
-
 #include "core/Game.hpp"
-#include "mvc/ConsoleView.hpp"
-#include "mvc/GameController.hpp"
-#include "strategy/FirstLegalMoveStrategy.hpp"
-#include "strategy/HumanConsoleStrategy.hpp"
-#include "strategy/IMoveStrategy.hpp"
+#include "mvc/SFMLGameController.hpp"
+#include "mvc/SFMLView.hpp"
 
 int main()
 {
     Game game;
-    ConsoleView view;
-
-    std::unique_ptr<IMoveStrategy> redStrategy = std::make_unique<HumanConsoleStrategy>();
-    std::unique_ptr<IMoveStrategy> blueStrategy = std::make_unique<HumanConsoleStrategy>();
-    std::unique_ptr<IMoveStrategy> greenStrategy = std::make_unique<HumanConsoleStrategy>();
-
-    // Variante de demonstration du pattern Strategy :
-    // std::unique_ptr<IMoveStrategy> blueStrategy = std::make_unique<FirstLegalMoveStrategy>();
-    // std::unique_ptr<IMoveStrategy> greenStrategy = std::make_unique<FirstLegalMoveStrategy>();
-
-    GameController controller(
-        game,
-        view,
-        std::move(redStrategy),
-        std::move(blueStrategy),
-        std::move(greenStrategy));
+    SFMLView view;
+    SFMLGameController controller(game, view);
 
     controller.run();
     return 0;

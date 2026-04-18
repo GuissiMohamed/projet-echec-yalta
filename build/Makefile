@@ -163,6 +163,30 @@ src/core/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s
 .PHONY : src/core/Board.cpp.s
 
+src/core/Game.o: src/core/Game.cpp.o
+.PHONY : src/core/Game.o
+
+# target to build an object file
+src/core/Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o
+.PHONY : src/core/Game.cpp.o
+
+src/core/Game.i: src/core/Game.cpp.i
+.PHONY : src/core/Game.i
+
+# target to preprocess a source file
+src/core/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.i
+.PHONY : src/core/Game.cpp.i
+
+src/core/Game.s: src/core/Game.cpp.s
+.PHONY : src/core/Game.s
+
+# target to generate assembly for a file
+src/core/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.s
+.PHONY : src/core/Game.cpp.s
+
 src/core/Move.o: src/core/Move.cpp.o
 .PHONY : src/core/Move.o
 
@@ -283,6 +307,174 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/mvc/ConsoleView.o: src/mvc/ConsoleView.cpp.o
+.PHONY : src/mvc/ConsoleView.o
+
+# target to build an object file
+src/mvc/ConsoleView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o
+.PHONY : src/mvc/ConsoleView.cpp.o
+
+src/mvc/ConsoleView.i: src/mvc/ConsoleView.cpp.i
+.PHONY : src/mvc/ConsoleView.i
+
+# target to preprocess a source file
+src/mvc/ConsoleView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.i
+.PHONY : src/mvc/ConsoleView.cpp.i
+
+src/mvc/ConsoleView.s: src/mvc/ConsoleView.cpp.s
+.PHONY : src/mvc/ConsoleView.s
+
+# target to generate assembly for a file
+src/mvc/ConsoleView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.s
+.PHONY : src/mvc/ConsoleView.cpp.s
+
+src/mvc/GameController.o: src/mvc/GameController.cpp.o
+.PHONY : src/mvc/GameController.o
+
+# target to build an object file
+src/mvc/GameController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o
+.PHONY : src/mvc/GameController.cpp.o
+
+src/mvc/GameController.i: src/mvc/GameController.cpp.i
+.PHONY : src/mvc/GameController.i
+
+# target to preprocess a source file
+src/mvc/GameController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.i
+.PHONY : src/mvc/GameController.cpp.i
+
+src/mvc/GameController.s: src/mvc/GameController.cpp.s
+.PHONY : src/mvc/GameController.s
+
+# target to generate assembly for a file
+src/mvc/GameController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.s
+.PHONY : src/mvc/GameController.cpp.s
+
+src/mvc/SFMLGameController.o: src/mvc/SFMLGameController.cpp.o
+.PHONY : src/mvc/SFMLGameController.o
+
+# target to build an object file
+src/mvc/SFMLGameController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o
+.PHONY : src/mvc/SFMLGameController.cpp.o
+
+src/mvc/SFMLGameController.i: src/mvc/SFMLGameController.cpp.i
+.PHONY : src/mvc/SFMLGameController.i
+
+# target to preprocess a source file
+src/mvc/SFMLGameController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.i
+.PHONY : src/mvc/SFMLGameController.cpp.i
+
+src/mvc/SFMLGameController.s: src/mvc/SFMLGameController.cpp.s
+.PHONY : src/mvc/SFMLGameController.s
+
+# target to generate assembly for a file
+src/mvc/SFMLGameController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.s
+.PHONY : src/mvc/SFMLGameController.cpp.s
+
+src/mvc/SFMLView.o: src/mvc/SFMLView.cpp.o
+.PHONY : src/mvc/SFMLView.o
+
+# target to build an object file
+src/mvc/SFMLView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o
+.PHONY : src/mvc/SFMLView.cpp.o
+
+src/mvc/SFMLView.i: src/mvc/SFMLView.cpp.i
+.PHONY : src/mvc/SFMLView.i
+
+# target to preprocess a source file
+src/mvc/SFMLView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.i
+.PHONY : src/mvc/SFMLView.cpp.i
+
+src/mvc/SFMLView.s: src/mvc/SFMLView.cpp.s
+.PHONY : src/mvc/SFMLView.s
+
+# target to generate assembly for a file
+src/mvc/SFMLView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.s
+.PHONY : src/mvc/SFMLView.cpp.s
+
+src/patterns/MoveCommand.o: src/patterns/MoveCommand.cpp.o
+.PHONY : src/patterns/MoveCommand.o
+
+# target to build an object file
+src/patterns/MoveCommand.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o
+.PHONY : src/patterns/MoveCommand.cpp.o
+
+src/patterns/MoveCommand.i: src/patterns/MoveCommand.cpp.i
+.PHONY : src/patterns/MoveCommand.i
+
+# target to preprocess a source file
+src/patterns/MoveCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.i
+.PHONY : src/patterns/MoveCommand.cpp.i
+
+src/patterns/MoveCommand.s: src/patterns/MoveCommand.cpp.s
+.PHONY : src/patterns/MoveCommand.s
+
+# target to generate assembly for a file
+src/patterns/MoveCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.s
+.PHONY : src/patterns/MoveCommand.cpp.s
+
+src/strategy/FirstLegalMoveStrategy.o: src/strategy/FirstLegalMoveStrategy.cpp.o
+.PHONY : src/strategy/FirstLegalMoveStrategy.o
+
+# target to build an object file
+src/strategy/FirstLegalMoveStrategy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o
+.PHONY : src/strategy/FirstLegalMoveStrategy.cpp.o
+
+src/strategy/FirstLegalMoveStrategy.i: src/strategy/FirstLegalMoveStrategy.cpp.i
+.PHONY : src/strategy/FirstLegalMoveStrategy.i
+
+# target to preprocess a source file
+src/strategy/FirstLegalMoveStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.i
+.PHONY : src/strategy/FirstLegalMoveStrategy.cpp.i
+
+src/strategy/FirstLegalMoveStrategy.s: src/strategy/FirstLegalMoveStrategy.cpp.s
+.PHONY : src/strategy/FirstLegalMoveStrategy.s
+
+# target to generate assembly for a file
+src/strategy/FirstLegalMoveStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.s
+.PHONY : src/strategy/FirstLegalMoveStrategy.cpp.s
+
+src/strategy/HumanConsoleStrategy.o: src/strategy/HumanConsoleStrategy.cpp.o
+.PHONY : src/strategy/HumanConsoleStrategy.o
+
+# target to build an object file
+src/strategy/HumanConsoleStrategy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o
+.PHONY : src/strategy/HumanConsoleStrategy.cpp.o
+
+src/strategy/HumanConsoleStrategy.i: src/strategy/HumanConsoleStrategy.cpp.i
+.PHONY : src/strategy/HumanConsoleStrategy.i
+
+# target to preprocess a source file
+src/strategy/HumanConsoleStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.i
+.PHONY : src/strategy/HumanConsoleStrategy.cpp.i
+
+src/strategy/HumanConsoleStrategy.s: src/strategy/HumanConsoleStrategy.cpp.s
+.PHONY : src/strategy/HumanConsoleStrategy.s
+
+# target to generate assembly for a file
+src/strategy/HumanConsoleStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.s
+.PHONY : src/strategy/HumanConsoleStrategy.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -296,6 +488,9 @@ help:
 	@echo "... src/core/Board.o"
 	@echo "... src/core/Board.i"
 	@echo "... src/core/Board.s"
+	@echo "... src/core/Game.o"
+	@echo "... src/core/Game.i"
+	@echo "... src/core/Game.s"
 	@echo "... src/core/Move.o"
 	@echo "... src/core/Move.i"
 	@echo "... src/core/Move.s"
@@ -311,6 +506,27 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/mvc/ConsoleView.o"
+	@echo "... src/mvc/ConsoleView.i"
+	@echo "... src/mvc/ConsoleView.s"
+	@echo "... src/mvc/GameController.o"
+	@echo "... src/mvc/GameController.i"
+	@echo "... src/mvc/GameController.s"
+	@echo "... src/mvc/SFMLGameController.o"
+	@echo "... src/mvc/SFMLGameController.i"
+	@echo "... src/mvc/SFMLGameController.s"
+	@echo "... src/mvc/SFMLView.o"
+	@echo "... src/mvc/SFMLView.i"
+	@echo "... src/mvc/SFMLView.s"
+	@echo "... src/patterns/MoveCommand.o"
+	@echo "... src/patterns/MoveCommand.i"
+	@echo "... src/patterns/MoveCommand.s"
+	@echo "... src/strategy/FirstLegalMoveStrategy.o"
+	@echo "... src/strategy/FirstLegalMoveStrategy.i"
+	@echo "... src/strategy/FirstLegalMoveStrategy.s"
+	@echo "... src/strategy/HumanConsoleStrategy.o"
+	@echo "... src/strategy/HumanConsoleStrategy.i"
+	@echo "... src/strategy/HumanConsoleStrategy.s"
 .PHONY : help
 
 

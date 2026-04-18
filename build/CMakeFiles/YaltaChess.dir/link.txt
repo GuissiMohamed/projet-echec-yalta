@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/YaltaChess.dir/src/main.cpp.o CMakeFiles/YaltaChess.dir/src/core/Square.cpp.o CMakeFiles/YaltaChess.dir/src/core/Player.cpp.o CMakeFiles/YaltaChess.dir/src/core/Piece.cpp.o CMakeFiles/YaltaChess.dir/src/core/Board.cpp.o CMakeFiles/YaltaChess.dir/src/core/Move.cpp.o -o YaltaChess

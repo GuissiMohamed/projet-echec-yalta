@@ -156,6 +156,118 @@ CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Piece.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s
 
+CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o: /Users/guississ/projet-echec-yalta/src/core/Game.cpp
+CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o -c /Users/guississ/projet-echec-yalta/src/core/Game.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/core/Game.cpp > CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/core/Game.cpp -o CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o: /Users/guississ/projet-echec-yalta/src/mvc/ConsoleView.cpp
+CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o -c /Users/guississ/projet-echec-yalta/src/mvc/ConsoleView.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/mvc/ConsoleView.cpp > CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/mvc/ConsoleView.cpp -o CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o: /Users/guississ/projet-echec-yalta/src/mvc/GameController.cpp
+CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o -c /Users/guississ/projet-echec-yalta/src/mvc/GameController.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/mvc/GameController.cpp > CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/mvc/GameController.cpp -o CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o: /Users/guississ/projet-echec-yalta/src/mvc/SFMLView.cpp
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o -c /Users/guississ/projet-echec-yalta/src/mvc/SFMLView.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/mvc/SFMLView.cpp > CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/mvc/SFMLView.cpp -o CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o: /Users/guississ/projet-echec-yalta/src/mvc/SFMLGameController.cpp
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o -c /Users/guississ/projet-echec-yalta/src/mvc/SFMLGameController.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/mvc/SFMLGameController.cpp > CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/mvc/SFMLGameController.cpp -o CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o: /Users/guississ/projet-echec-yalta/src/patterns/MoveCommand.cpp
+CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o -c /Users/guississ/projet-echec-yalta/src/patterns/MoveCommand.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/patterns/MoveCommand.cpp > CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/patterns/MoveCommand.cpp -o CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o: /Users/guississ/projet-echec-yalta/src/strategy/HumanConsoleStrategy.cpp
+CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o -c /Users/guississ/projet-echec-yalta/src/strategy/HumanConsoleStrategy.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/strategy/HumanConsoleStrategy.cpp > CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/strategy/HumanConsoleStrategy.cpp -o CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.s
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o: CMakeFiles/projet-echec-yalta.dir/flags.make
+CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o: /Users/guississ/projet-echec-yalta/src/strategy/FirstLegalMoveStrategy.cpp
+CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o: CMakeFiles/projet-echec-yalta.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o -MF CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o.d -o CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o -c /Users/guississ/projet-echec-yalta/src/strategy/FirstLegalMoveStrategy.cpp
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guississ/projet-echec-yalta/src/strategy/FirstLegalMoveStrategy.cpp > CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.i
+
+CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guississ/projet-echec-yalta/src/strategy/FirstLegalMoveStrategy.cpp -o CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.s
+
 # Object files for target projet-echec-yalta
 projet__echec__yalta_OBJECTS = \
 "CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o" \
@@ -163,7 +275,15 @@ projet__echec__yalta_OBJECTS = \
 "CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o" \
 "CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o" \
 "CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o" \
-"CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o"
+"CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o" \
+"CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o"
 
 # External object files for target projet-echec-yalta
 projet__echec__yalta_EXTERNAL_OBJECTS =
@@ -174,9 +294,20 @@ projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLView.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/mvc/SFMLGameController.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/patterns/MoveCommand.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.o
+projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/src/strategy/FirstLegalMoveStrategy.cpp.o
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/build.make
+projet-echec-yalta: /usr/local/opt/sfml/lib/libsfml-graphics.3.0.2.dylib
+projet-echec-yalta: /usr/local/opt/sfml/lib/libsfml-window.3.0.2.dylib
+projet-echec-yalta: /usr/local/opt/sfml/lib/libsfml-system.3.0.2.dylib
 projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable projet-echec-yalta"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable projet-echec-yalta"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/projet-echec-yalta.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
