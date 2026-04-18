@@ -2,12 +2,22 @@
 
 #include <string>
 
-#include "core/Piece.hpp"
-#include "core/Square.hpp"
 #include "mvc/ConsoleView.hpp"
+#include "patterns/MoveCommand.hpp"
+#include "strategy/IMoveStrategy.hpp"
 
-GameController::GameController(Game& game, ConsoleView& view)
-    : m_game(game), m_view(view), m_userRequestedQuit(false)
+GameController::GameController(
+    Game& game,
+    ConsoleView& view,
+    std::unique_ptr<IMoveStrategy> redStrategy,
+    std::unique_ptr<IMoveStrategy> blueStrategy,
+    std::unique_ptr<IMoveStrategy> greenStrategy)
+    : m_game(game),
+      m_view(view),
+      m_redStrategy(std::move(redStrategy)),
+      m_blueStrategy(std::move(blueStrategy)),
+      m_greenStrategy(std::move(greenStrategy)),
+      m_userRequestedQuit(false)
 {
 }
 
@@ -61,6 +71,7 @@ void GameController::setupDefaultPosition()
 
     m_view.showMessage("Position initiale simplifiee chargee.");
     m_view.showMessage("Attention : ce placement reste temporaire par rapport a la vraie geometrie Yalta.");
+    m_view.showMessage("S07 : MVC consolide + Command + Strategy.");
     m_view.showMessage("");
 }
 
@@ -78,140 +89,18 @@ bool GameController::isSessionFinished() const
         || state == GameState::WinByElimination;
 }
 
-std::vector<Move> GameController::filterMovesByFrom(const std::vector<Move>& moves, int fromId) const
+IMoveStrategy* GameController::getStrategy(PlayerColor color) const
 {
-    std::vector<Move> result;
-
-    for (const Move& move : moves)
+    switch (color)
     {
-        if (move.getFrom() != nullptr && move.getFrom()->getId() == fromId)
-        {
-            result.push_back(move);
-        }
-    }
-
-    return result;
-}
-
-std::vector<Move> GameController::filterMovesByTo(const std::vector<Move>& moves, int toId) const
-{
-    std::vector<Move> result;
-
-    for (const Move& move : moves)
-    {
-        if (move.getTo() != nullptr && move.getTo()->getId() == toId)
-        {
-            result.push_back(move);
-        }
-    }
-
-    return result;
-}
-
-Move GameController::selectPromotionMove(const std::vector<Move>& promotionMoves) const
-{
-    const int choice = m_view.askPromotionChoice();
-
-    PieceType selectedType = PieceType::Queen;
-
-    switch (choice)
-    {
-        case 1: selectedType = PieceType::Queen; break;
-        case 2: selectedType = PieceType::Rook; break;
-        case 3: selectedType = PieceType::Bishop; break;
-        case 4: selectedType = PieceType::Knight; break;
-        default: selectedType = PieceType::Queen; break;
-    }
-
-    for (const Move& move : promotionMoves)
-    {
-        if (move.getPromotionType() == selectedType)
-        {
-            return move;
-        }
-    }
-
-    return {};
-}
-
-bool GameController::handleTurn()
-{
-    Player* currentPlayer = m_game.getCurrentPlayer();
-
-    if (currentPlayer == nullptr)
-    {
-        m_view.showMessage("Aucun joueur courant disponible.");
-        return false;
-    }
-
-    const std::vector<Move> playerMoves = m_game.getLegalMovesForPlayer(currentPlayer->getColor());
-
-    if (playerMoves.empty())
-    {
-        m_view.showMessage("Le joueur courant n'a aucun coup legal.");
-        return false;
-    }
-
-    while (true)
-    {
-        const std::string command = m_view.askCommand();
-
-        if (command == "quit")
-        {
-            m_userRequestedQuit = true;
-            m_view.showMessage("Session interrompue par l'utilisateur.");
-            return false;
-        }
-
-        if (command != "play")
-        {
-            m_view.showMessage("Commande inconnue.");
-            continue;
-        }
-
-        const int fromId = m_view.askSquareId("Case source : ");
-        const std::vector<Move> pieceMoves = filterMovesByFrom(playerMoves, fromId);
-
-        if (pieceMoves.empty())
-        {
-            m_view.showMessage("Aucun coup legal depuis cette case.");
-            continue;
-        }
-
-        m_view.showMoves(pieceMoves);
-
-        const int toId = m_view.askSquareId("Case destination : ");
-        const std::vector<Move> destinationMoves = filterMovesByTo(pieceMoves, toId);
-
-        if (destinationMoves.empty())
-        {
-            m_view.showMessage("Destination invalide pour cette piece.");
-            continue;
-        }
-
-        Move selectedMove = destinationMoves.front();
-
-        if (destinationMoves.size() > 1 && destinationMoves.front().getType() == MoveType::Promotion)
-        {
-            selectedMove = selectPromotionMove(destinationMoves);
-            if (selectedMove.getFrom() == nullptr)
-            {
-                m_view.showMessage("Promotion invalide.");
-                continue;
-            }
-        }
-
-        if (!m_game.playMove(selectedMove))
-        {
-            m_view.showMessage("Le coup a ete refuse par le moteur.");
-            continue;
-        }
-
-        m_view.showMessage("");
-        m_view.showMessage("Coup joue avec succes.");
-        m_view.showMessage(m_game.getLastEvent());
-        m_view.showMessage("");
-        return true;
+        case PlayerColor::Red:
+            return m_redStrategy.get();
+        case PlayerColor::Blue:
+            return m_blueStrategy.get();
+        case PlayerColor::Green:
+            return m_greenStrategy.get();
+        default:
+            return nullptr;
     }
 }
 
@@ -225,10 +114,52 @@ void GameController::run()
         m_view.showBoard(m_game);
         m_view.showStatus(m_game);
 
-        if (!handleTurn())
+        Player* currentPlayer = m_game.getCurrentPlayer();
+        if (currentPlayer == nullptr)
         {
+            m_view.showMessage("Aucun joueur courant disponible.");
             break;
         }
+
+        IMoveStrategy* strategy = getStrategy(currentPlayer->getColor());
+        if (strategy == nullptr)
+        {
+            m_view.showMessage("Aucune strategie configuree pour ce joueur.");
+            break;
+        }
+
+        m_view.showMessage("Strategie active : " + strategy->getName());
+
+        StrategyDecision decision = strategy->chooseMove(
+            m_game,
+            m_view,
+            currentPlayer->getColor());
+
+        if (decision.quitRequested)
+        {
+            m_userRequestedQuit = true;
+            m_view.showMessage("Session interrompue par l'utilisateur.");
+            break;
+        }
+
+        if (!decision.selectedMove.has_value())
+        {
+            m_view.showMessage("La strategie n'a fourni aucun coup.");
+            break;
+        }
+
+        MoveCommand command(m_game, *decision.selectedMove);
+        m_view.showMessage(command.getLabel());
+
+        if (!command.execute())
+        {
+            m_view.showMessage("Le coup a ete refuse par le moteur.");
+            break;
+        }
+
+        m_view.showMessage("Coup joue avec succes.");
+        m_view.showMessage(m_game.getLastEvent());
+        m_view.showMessage("");
     }
 
     m_view.showBoard(m_game);

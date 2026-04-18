@@ -17,6 +17,9 @@ add_executable(projet-echec-yalta
     src/core/Game.cpp
     src/mvc/ConsoleView.cpp
     src/mvc/GameController.cpp
+    src/patterns/MoveCommand.cpp
+    src/strategy/HumanConsoleStrategy.cpp
+    src/strategy/FirstLegalMoveStrategy.cpp
 )
 
 enable_testing()
