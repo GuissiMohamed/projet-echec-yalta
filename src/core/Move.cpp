@@ -1,19 +1,24 @@
 #include "core/Move.hpp"
+
+#include "core/Board.hpp"
 #include "core/Square.hpp"
 
-Move::Move(Square* from, Square* to, MoveType type, PieceType promotionType)
-    : m_from(from), m_to(to), m_type(type), m_promotionType(promotionType)
+Move::Move(int fromId, int toId, MoveType type, PieceType promotionType)
+    : m_fromId(fromId),
+      m_toId(toId),
+      m_type(type),
+      m_promotionType(promotionType)
 {
 }
 
-Square* Move::getFrom() const
+int Move::getFromId() const
 {
-    return m_from;
+    return m_fromId;
 }
 
-Square* Move::getTo() const
+int Move::getToId() const
 {
-    return m_to;
+    return m_toId;
 }
 
 MoveType Move::getType() const
@@ -26,15 +31,35 @@ PieceType Move::getPromotionType() const
     return m_promotionType;
 }
 
+bool Move::isValid() const
+{
+    return m_fromId >= 0 && m_toId >= 0;
+}
+
+Square* Move::resolveFrom(Board& board) const
+{
+    return board.getSquare(m_fromId);
+}
+
+const Square* Move::resolveFrom(const Board& board) const
+{
+    return board.getSquare(m_fromId);
+}
+
+Square* Move::resolveTo(Board& board) const
+{
+    return board.getSquare(m_toId);
+}
+
+const Square* Move::resolveTo(const Board& board) const
+{
+    return board.getSquare(m_toId);
+}
+
 bool Move::operator==(const Move& other) const
 {
-    const int thisFromId = (m_from != nullptr) ? m_from->getId() : -1;
-    const int thisToId = (m_to != nullptr) ? m_to->getId() : -1;
-    const int otherFromId = (other.m_from != nullptr) ? other.m_from->getId() : -1;
-    const int otherToId = (other.m_to != nullptr) ? other.m_to->getId() : -1;
-
-    return thisFromId == otherFromId
-        && thisToId == otherToId
+    return m_fromId == other.m_fromId
+        && m_toId == other.m_toId
         && m_type == other.m_type
         && m_promotionType == other.m_promotionType;
 }

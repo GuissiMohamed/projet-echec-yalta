@@ -1,0 +1,16 @@
+@startuml
+[*] --> Initialisation
+
+Initialisation --> Partie_en_cours : démarrer la partie
+
+Partie_en_cours --> Echec : roi menacé
+Echec --> Partie_en_cours : menace levée
+
+Partie_en_cours --> Victoire : un seul joueur reste
+Partie_en_cours --> Nulle : pat ou nulle
+Echec --> Victoire : joueur éliminé
+Echec --> Nulle : aucun coup légal
+
+Victoire --> [*]
+Nulle --> [*]
+@enduml

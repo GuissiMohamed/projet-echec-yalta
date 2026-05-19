@@ -8,12 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/guississ/projet-echec-yalta/src/ai/AlphaBetaAI.cpp" "CMakeFiles/projet-echec-yalta.dir/src/ai/AlphaBetaAI.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/ai/AlphaBetaAI.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Board.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/BoardTopology.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/BoardTopology.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/BoardTopology.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Game.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Move.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Piece.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Player.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/core/Square.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o.d"
+  "/Users/guississ/projet-echec-yalta/src/core/YaltaBoardTopology.cpp" "CMakeFiles/projet-echec-yalta.dir/src/core/YaltaBoardTopology.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/core/YaltaBoardTopology.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/main.cpp" "CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/main.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/mvc/ConsoleView.cpp" "CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/mvc/ConsoleView.cpp.o.d"
   "/Users/guississ/projet-echec-yalta/src/mvc/GameController.cpp" "CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o" "gcc" "CMakeFiles/projet-echec-yalta.dir/src/mvc/GameController.cpp.o.d"

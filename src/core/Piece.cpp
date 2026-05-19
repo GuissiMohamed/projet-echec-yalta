@@ -1,8 +1,45 @@
 #include "core/Piece.hpp"
 
+#include <array>
+
 #include "core/Board.hpp"
 #include "core/Player.hpp"
 #include "core/Square.hpp"
+
+namespace
+{
+    int stepOrthogonal(const Board& board, int squareId, OrthogonalDirection direction)
+    {
+        return board.getOrthogonalNeighbor(squareId, direction);
+    }
+
+    int stepDiagonal(const Board& board, int squareId, DiagonalDirection direction)
+    {
+        return board.getDiagonalNeighbor(squareId, direction);
+    }
+
+    int stepKnightPath(
+        const Board& board,
+        int squareId,
+        OrthogonalDirection firstA,
+        OrthogonalDirection firstB,
+        OrthogonalDirection turn)
+    {
+        int step1 = board.getOrthogonalNeighbor(squareId, firstA);
+        if (step1 < 0)
+        {
+            return -1;
+        }
+
+        int step2 = board.getOrthogonalNeighbor(step1, firstB);
+        if (step2 < 0)
+        {
+            return -1;
+        }
+
+        return board.getOrthogonalNeighbor(step2, turn);
+    }
+}
 
 Piece::Piece(PieceType type, Player* owner, Square* square, Board* board)
     : m_type(type),
@@ -66,49 +103,10 @@ void Piece::setCaptured(bool captured)
 
 void Piece::addSlidingMoves(std::vector<Move>& moves, const int directions[][2], int directionCount) const
 {
-    if (!m_square || !m_board || !m_owner)
-    {
-        return;
-    }
-
-    const int row = m_board->getRow(m_square->getId());
-    const int col = m_board->getCol(m_square->getId());
-
-    for (int i = 0; i < directionCount; ++i)
-    {
-        int currentRow = row;
-        int currentCol = col;
-
-        while (true)
-        {
-            currentRow += directions[i][0];
-            currentCol += directions[i][1];
-
-            if (!m_board->isValid(currentRow, currentCol))
-            {
-                break;
-            }
-
-            Square* target = m_board->getSquare(currentRow, currentCol);
-            if (target == nullptr)
-            {
-                break;
-            }
-
-            if (!target->isOccupied())
-            {
-                moves.emplace_back(m_square, target, MoveType::Normal);
-                continue;
-            }
-
-            if (target->getPiece()->getOwner() != m_owner)
-            {
-                moves.emplace_back(m_square, target, MoveType::Capture);
-            }
-
-            break;
-        }
-    }
+    // Garde-fou : cette ancienne signature n'est plus utilisée par la nouvelle logique.
+    (void)moves;
+    (void)directions;
+    (void)directionCount;
 }
 
 std::vector<Move> Piece::getPseudoLegalMoves() const
@@ -120,44 +118,113 @@ std::vector<Move> Piece::getPseudoLegalMoves() const
         return moves;
     }
 
-    const int id = m_square->getId();
-    const int row = m_board->getRow(id);
-    const int col = m_board->getCol(id);
+    const int fromId = m_square->getId();
+
+    auto addDestination = [this, &moves, fromId](int targetId)
+    {
+        if (targetId < 0)
+        {
+            return;
+        }
+
+        Square* target = m_board->getSquare(targetId);
+        if (target == nullptr)
+        {
+            return;
+        }
+
+        if (!target->isOccupied())
+        {
+            moves.emplace_back(fromId, targetId, MoveType::Normal);
+        }
+        else if (target->getPiece() != nullptr && target->getPiece()->getOwner() != m_owner)
+        {
+            moves.emplace_back(fromId, targetId, MoveType::Capture);
+        }
+    };
+
+    auto addSlidingLineOrthogonal = [this, &moves, fromId](OrthogonalDirection direction)
+    {
+        int current = m_board->getOrthogonalNeighbor(fromId, direction);
+
+        while (current >= 0)
+        {
+            Square* target = m_board->getSquare(current);
+            if (target == nullptr)
+            {
+                break;
+            }
+
+            if (!target->isOccupied())
+            {
+                moves.emplace_back(fromId, current, MoveType::Normal);
+            }
+            else
+            {
+                if (target->getPiece() != nullptr && target->getPiece()->getOwner() != m_owner)
+                {
+                    moves.emplace_back(fromId, current, MoveType::Capture);
+                }
+                break;
+            }
+
+            current = m_board->getOrthogonalNeighbor(current, direction);
+        }
+    };
+
+    auto addSlidingLineDiagonal = [this, &moves, fromId](DiagonalDirection direction)
+    {
+        int current = m_board->getDiagonalNeighbor(fromId, direction);
+
+        while (current >= 0)
+        {
+            Square* target = m_board->getSquare(current);
+            if (target == nullptr)
+            {
+                break;
+            }
+
+            if (!target->isOccupied())
+            {
+                moves.emplace_back(fromId, current, MoveType::Normal);
+            }
+            else
+            {
+                if (target->getPiece() != nullptr && target->getPiece()->getOwner() != m_owner)
+                {
+                    moves.emplace_back(fromId, current, MoveType::Capture);
+                }
+                break;
+            }
+
+            current = m_board->getDiagonalNeighbor(current, direction);
+        }
+    };
 
     if (m_type == PieceType::King)
     {
-        for (int dr = -1; dr <= 1; ++dr)
+        const std::array<OrthogonalDirection, 4> orthogonals = {
+            OrthogonalDirection::Up,
+            OrthogonalDirection::Down,
+            OrthogonalDirection::Left,
+            OrthogonalDirection::Right
+        };
+
+        const std::array<DiagonalDirection, 4> diagonals = {
+            DiagonalDirection::UpLeft,
+            DiagonalDirection::UpRight,
+            DiagonalDirection::DownLeft,
+            DiagonalDirection::DownRight
+        };
+
+        for (OrthogonalDirection direction : orthogonals)
         {
-            for (int dc = -1; dc <= 1; ++dc)
-            {
-                if (dr == 0 && dc == 0)
-                {
-                    continue;
-                }
+            addDestination(stepOrthogonal(*m_board, fromId, direction));
+        }
 
-                const int nextRow = row + dr;
-                const int nextCol = col + dc;
-
-                if (!m_board->isValid(nextRow, nextCol))
-                {
-                    continue;
-                }
-
-                Square* target = m_board->getSquare(nextRow, nextCol);
-                if (target == nullptr)
-                {
-                    continue;
-                }
-
-                if (!target->isOccupied())
-                {
-                    moves.emplace_back(m_square, target, MoveType::Normal);
-                }
-                else if (target->getPiece()->getOwner() != m_owner)
-                {
-                    moves.emplace_back(m_square, target, MoveType::Capture);
-                }
-            }
+        for (DiagonalDirection direction : diagonals)
+        {
+            addDestination(stepDiagonal(*m_board, fromId, direction));
         }
 
         return moves;
@@ -165,74 +232,52 @@ std::vector<Move> Piece::getPseudoLegalMoves() const
 
     if (m_type == PieceType::Rook)
     {
-        const int directions[4][2] = {
-            {-1, 0},
-            {1, 0},
-            {0, -1},
-            {0, 1}
-        };
-
-        addSlidingMoves(moves, directions, 4);
+        addSlidingLineOrthogonal(OrthogonalDirection::Up);
+        addSlidingLineOrthogonal(OrthogonalDirection::Down);
+        addSlidingLineOrthogonal(OrthogonalDirection::Left);
+        addSlidingLineOrthogonal(OrthogonalDirection::Right);
         return moves;
     }
 
     if (m_type == PieceType::Bishop)
     {
-        const int directions[4][2] = {
-            {-1, -1},
-            {-1, 1},
-            {1, -1},
-            {1, 1}
-        };
-
-        addSlidingMoves(moves, directions, 4);
+        addSlidingLineDiagonal(DiagonalDirection::UpLeft);
+        addSlidingLineDiagonal(DiagonalDirection::UpRight);
+        addSlidingLineDiagonal(DiagonalDirection::DownLeft);
+        addSlidingLineDiagonal(DiagonalDirection::DownRight);
         return moves;
     }
 
     if (m_type == PieceType::Queen)
     {
-        const int directions[8][2] = {
-            {-1, 0}, {1, 0}, {0, -1}, {0, 1},
-            {-1, -1}, {-1, 1}, {1, -1}, {1, 1}
-        };
+        addSlidingLineOrthogonal(OrthogonalDirection::Up);
+        addSlidingLineOrthogonal(OrthogonalDirection::Down);
+        addSlidingLineOrthogonal(OrthogonalDirection::Left);
+        addSlidingLineOrthogonal(OrthogonalDirection::Right);
 
-        addSlidingMoves(moves, directions, 8);
+        addSlidingLineDiagonal(DiagonalDirection::UpLeft);
+        addSlidingLineDiagonal(DiagonalDirection::UpRight);
+        addSlidingLineDiagonal(DiagonalDirection::DownLeft);
+        addSlidingLineDiagonal(DiagonalDirection::DownRight);
         return moves;
     }
 
     if (m_type == PieceType::Knight)
     {
-        const int offsets[8][2] = {
-            {-2, -1}, {-2, 1},
-            {-1, -2}, {-1, 2},
-            {1, -2}, {1, 2},
-            {2, -1}, {2, 1}
+        const std::array<int, 8> knightTargets = {
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Up, OrthogonalDirection::Up, OrthogonalDirection::Left),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Up, OrthogonalDirection::Up, OrthogonalDirection::Right),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Down, OrthogonalDirection::Down, OrthogonalDirection::Left),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Down, OrthogonalDirection::Down, OrthogonalDirection::Right),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Left, OrthogonalDirection::Left, OrthogonalDirection::Up),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Left, OrthogonalDirection::Left, OrthogonalDirection::Down),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Right, OrthogonalDirection::Right, OrthogonalDirection::Up),
+            stepKnightPath(*m_board, fromId, OrthogonalDirection::Right, OrthogonalDirection::Right, OrthogonalDirection::Down)
         };
 
-        for (const auto& offset : offsets)
+        for (int targetId : knightTargets)
         {
-            const int nextRow = row + offset[0];
-            const int nextCol = col + offset[1];
-
-            if (!m_board->isValid(nextRow, nextCol))
-            {
-                continue;
-            }
-
-            Square* target = m_board->getSquare(nextRow, nextCol);
-            if (target == nullptr)
-            {
-                continue;
-            }
-
-            if (!target->isOccupied())
-            {
-                moves.emplace_back(m_square, target, MoveType::Normal);
-            }
-            else if (target->getPiece()->getOwner() != m_owner)
-            {
-                moves.emplace_back(m_square, target, MoveType::Capture);
-            }
+            addDestination(targetId);
         }
 
         return moves;
@@ -240,46 +285,45 @@ std::vector<Move> Piece::getPseudoLegalMoves() const
 
     if (m_type == PieceType::Pawn)
     {
-        const auto [forwardRow, forwardCol] = m_owner->getForwardDirection();
-        const int oneStepRow = row + forwardRow;
-        const int oneStepCol = col + forwardCol;
+        const OrthogonalDirection forward = m_owner->getPawnForwardDirection();
+        const auto [captureA, captureB] = m_owner->getPawnCaptureDirections();
 
-        if (m_board->isValid(oneStepRow, oneStepCol))
+        const int oneStep = m_board->getOrthogonalNeighbor(fromId, forward);
+        if (oneStep >= 0)
         {
-            Square* oneStepTarget = m_board->getSquare(oneStepRow, oneStepCol);
-            if (oneStepTarget != nullptr && !oneStepTarget->isOccupied())
+            Square* oneStepSquare = m_board->getSquare(oneStep);
+            if (oneStepSquare != nullptr && !oneStepSquare->isOccupied())
             {
-                moves.emplace_back(m_square, oneStepTarget, MoveType::Normal);
+                moves.emplace_back(fromId, oneStep, MoveType::Normal);
 
-                const int twoStepRow = row + (2 * forwardRow);
-                const int twoStepCol = col + (2 * forwardCol);
-
-                if (!m_hasMoved && m_board->isValid(twoStepRow, twoStepCol))
+                if (!m_hasMoved)
                 {
-                    Square* twoStepTarget = m_board->getSquare(twoStepRow, twoStepCol);
-                    if (twoStepTarget != nullptr && !twoStepTarget->isOccupied())
+                    const int twoStep = m_board->getOrthogonalNeighbor(oneStep, forward);
+                    if (twoStep >= 0)
                     {
-                        moves.emplace_back(m_square, twoStepTarget, MoveType::Normal);
+                        Square* twoStepSquare = m_board->getSquare(twoStep);
+                        if (twoStepSquare != nullptr && !twoStepSquare->isOccupied())
+                        {
+                            moves.emplace_back(fromId, twoStep, MoveType::Normal);
+                        }
                     }
                 }
             }
         }
 
-        const auto captureDirections = m_owner->getPawnCaptureDirections();
-        for (const auto& [captureRowDelta, captureColDelta] : captureDirections)
+        const std::array<DiagonalDirection, 2> captureDirections = {captureA, captureB};
+        for (DiagonalDirection direction : captureDirections)
         {
-            const int captureRow = row + captureRowDelta;
-            const int captureCol = col + captureColDelta;
-
-            if (!m_board->isValid(captureRow, captureCol))
+            const int targetId = m_board->getDiagonalNeighbor(fromId, direction);
+            if (targetId < 0)
             {
                 continue;
             }
 
-            Square* target = m_board->getSquare(captureRow, captureCol);
+            Square* target = m_board->getSquare(targetId);
             if (target != nullptr && target->isOccupied() && target->getPiece()->getOwner() != m_owner)
             {
-                moves.emplace_back(m_square, target, MoveType::Capture);
+                moves.emplace_back(fromId, targetId, MoveType::Capture);
             }
         }
 

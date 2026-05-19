@@ -3,6 +3,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+#include "core/BoardTopology.hpp"
 #include "core/Types.hpp"
 
 class Piece;
@@ -22,8 +24,8 @@ public:
     bool isEliminated() const;
     void setEliminated(bool eliminated);
 
-    std::pair<int, int> getForwardDirection() const;
-    std::vector<std::pair<int, int>> getPawnCaptureDirections() const;
+    OrthogonalDirection getPawnForwardDirection() const;
+    std::pair<DiagonalDirection, DiagonalDirection> getPawnCaptureDirections() const;
 
 private:
     std::string m_name;

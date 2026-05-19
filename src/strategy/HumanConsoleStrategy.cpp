@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "core/Game.hpp"
-#include "core/Square.hpp"
 #include "mvc/ConsoleView.hpp"
 
 namespace
@@ -14,7 +13,7 @@ namespace
 
         for (const Move& move : moves)
         {
-            if (move.getFrom() != nullptr && move.getFrom()->getId() == fromId)
+            if (move.getFromId() == fromId)
             {
                 result.push_back(move);
             }
@@ -29,7 +28,7 @@ namespace
 
         for (const Move& move : moves)
         {
-            if (move.getTo() != nullptr && move.getTo()->getId() == toId)
+            if (move.getToId() == toId)
             {
                 result.push_back(move);
             }
@@ -121,7 +120,7 @@ StrategyDecision HumanConsoleStrategy::chooseMove(
             && destinationMoves.front().getType() == MoveType::Promotion)
         {
             selectedMove = selectPromotionMove(view, destinationMoves);
-            if (selectedMove.getFrom() == nullptr)
+            if (!selectedMove.isValid())
             {
                 view.showMessage("Choix de promotion invalide.");
                 continue;

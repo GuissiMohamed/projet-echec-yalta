@@ -13,6 +13,8 @@ add_executable(projet-echec-yalta
     src/main.cpp
     src/core/Square.cpp
     src/core/Board.cpp
+    src/core/BoardTopology.cpp
+    src/core/YaltaBoardTopology.cpp
     src/core/Player.cpp
     src/core/Move.cpp
     src/core/Piece.cpp
@@ -29,4 +31,17 @@ add_executable(projet-echec-yalta
 
 target_link_libraries(projet-echec-yalta PRIVATE SFML::Graphics)
 
+add_executable(yalta-core-tests
+    tests/core_tests.cpp
+    src/core/Square.cpp
+    src/core/Board.cpp
+    src/core/BoardTopology.cpp
+    src/core/YaltaBoardTopology.cpp
+    src/core/Player.cpp
+    src/core/Move.cpp
+    src/core/Piece.cpp
+    src/core/Game.cpp
+)
+
 enable_testing()
+add_test(NAME yalta-core-tests COMMAND yalta-core-tests)

@@ -139,12 +139,50 @@ projet-echec-yalta/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/build
 .PHONY : projet-echec-yalta/fast
 
+#=============================================================================
+# Target rules for targets named yalta-core-tests
+
+# Build rule for target.
+yalta-core-tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 yalta-core-tests
+.PHONY : yalta-core-tests
+
+# fast build rule for target.
+yalta-core-tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/build
+.PHONY : yalta-core-tests/fast
+
+src/ai/AlphaBetaAI.o: src/ai/AlphaBetaAI.cpp.o
+.PHONY : src/ai/AlphaBetaAI.o
+
+# target to build an object file
+src/ai/AlphaBetaAI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/ai/AlphaBetaAI.cpp.o
+.PHONY : src/ai/AlphaBetaAI.cpp.o
+
+src/ai/AlphaBetaAI.i: src/ai/AlphaBetaAI.cpp.i
+.PHONY : src/ai/AlphaBetaAI.i
+
+# target to preprocess a source file
+src/ai/AlphaBetaAI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/ai/AlphaBetaAI.cpp.i
+.PHONY : src/ai/AlphaBetaAI.cpp.i
+
+src/ai/AlphaBetaAI.s: src/ai/AlphaBetaAI.cpp.s
+.PHONY : src/ai/AlphaBetaAI.s
+
+# target to generate assembly for a file
+src/ai/AlphaBetaAI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/ai/AlphaBetaAI.cpp.s
+.PHONY : src/ai/AlphaBetaAI.cpp.s
+
 src/core/Board.o: src/core/Board.cpp.o
 .PHONY : src/core/Board.o
 
 # target to build an object file
 src/core/Board.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Board.cpp.o
 .PHONY : src/core/Board.cpp.o
 
 src/core/Board.i: src/core/Board.cpp.i
@@ -153,6 +191,7 @@ src/core/Board.i: src/core/Board.cpp.i
 # target to preprocess a source file
 src/core/Board.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Board.cpp.i
 .PHONY : src/core/Board.cpp.i
 
 src/core/Board.s: src/core/Board.cpp.s
@@ -161,7 +200,35 @@ src/core/Board.s: src/core/Board.cpp.s
 # target to generate assembly for a file
 src/core/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Board.cpp.s
 .PHONY : src/core/Board.cpp.s
+
+src/core/BoardTopology.o: src/core/BoardTopology.cpp.o
+.PHONY : src/core/BoardTopology.o
+
+# target to build an object file
+src/core/BoardTopology.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/BoardTopology.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/BoardTopology.cpp.o
+.PHONY : src/core/BoardTopology.cpp.o
+
+src/core/BoardTopology.i: src/core/BoardTopology.cpp.i
+.PHONY : src/core/BoardTopology.i
+
+# target to preprocess a source file
+src/core/BoardTopology.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/BoardTopology.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/BoardTopology.cpp.i
+.PHONY : src/core/BoardTopology.cpp.i
+
+src/core/BoardTopology.s: src/core/BoardTopology.cpp.s
+.PHONY : src/core/BoardTopology.s
+
+# target to generate assembly for a file
+src/core/BoardTopology.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/BoardTopology.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/BoardTopology.cpp.s
+.PHONY : src/core/BoardTopology.cpp.s
 
 src/core/Game.o: src/core/Game.cpp.o
 .PHONY : src/core/Game.o
@@ -169,6 +236,7 @@ src/core/Game.o: src/core/Game.cpp.o
 # target to build an object file
 src/core/Game.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Game.cpp.o
 .PHONY : src/core/Game.cpp.o
 
 src/core/Game.i: src/core/Game.cpp.i
@@ -177,6 +245,7 @@ src/core/Game.i: src/core/Game.cpp.i
 # target to preprocess a source file
 src/core/Game.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Game.cpp.i
 .PHONY : src/core/Game.cpp.i
 
 src/core/Game.s: src/core/Game.cpp.s
@@ -185,6 +254,7 @@ src/core/Game.s: src/core/Game.cpp.s
 # target to generate assembly for a file
 src/core/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Game.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Game.cpp.s
 .PHONY : src/core/Game.cpp.s
 
 src/core/Move.o: src/core/Move.cpp.o
@@ -193,6 +263,7 @@ src/core/Move.o: src/core/Move.cpp.o
 # target to build an object file
 src/core/Move.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Move.cpp.o
 .PHONY : src/core/Move.cpp.o
 
 src/core/Move.i: src/core/Move.cpp.i
@@ -201,6 +272,7 @@ src/core/Move.i: src/core/Move.cpp.i
 # target to preprocess a source file
 src/core/Move.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Move.cpp.i
 .PHONY : src/core/Move.cpp.i
 
 src/core/Move.s: src/core/Move.cpp.s
@@ -209,6 +281,7 @@ src/core/Move.s: src/core/Move.cpp.s
 # target to generate assembly for a file
 src/core/Move.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Move.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Move.cpp.s
 .PHONY : src/core/Move.cpp.s
 
 src/core/Piece.o: src/core/Piece.cpp.o
@@ -217,6 +290,7 @@ src/core/Piece.o: src/core/Piece.cpp.o
 # target to build an object file
 src/core/Piece.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Piece.cpp.o
 .PHONY : src/core/Piece.cpp.o
 
 src/core/Piece.i: src/core/Piece.cpp.i
@@ -225,6 +299,7 @@ src/core/Piece.i: src/core/Piece.cpp.i
 # target to preprocess a source file
 src/core/Piece.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Piece.cpp.i
 .PHONY : src/core/Piece.cpp.i
 
 src/core/Piece.s: src/core/Piece.cpp.s
@@ -233,6 +308,7 @@ src/core/Piece.s: src/core/Piece.cpp.s
 # target to generate assembly for a file
 src/core/Piece.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Piece.cpp.s
 .PHONY : src/core/Piece.cpp.s
 
 src/core/Player.o: src/core/Player.cpp.o
@@ -241,6 +317,7 @@ src/core/Player.o: src/core/Player.cpp.o
 # target to build an object file
 src/core/Player.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Player.cpp.o
 .PHONY : src/core/Player.cpp.o
 
 src/core/Player.i: src/core/Player.cpp.i
@@ -249,6 +326,7 @@ src/core/Player.i: src/core/Player.cpp.i
 # target to preprocess a source file
 src/core/Player.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Player.cpp.i
 .PHONY : src/core/Player.cpp.i
 
 src/core/Player.s: src/core/Player.cpp.s
@@ -257,6 +335,7 @@ src/core/Player.s: src/core/Player.cpp.s
 # target to generate assembly for a file
 src/core/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Player.cpp.s
 .PHONY : src/core/Player.cpp.s
 
 src/core/Square.o: src/core/Square.cpp.o
@@ -265,6 +344,7 @@ src/core/Square.o: src/core/Square.cpp.o
 # target to build an object file
 src/core/Square.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Square.cpp.o
 .PHONY : src/core/Square.cpp.o
 
 src/core/Square.i: src/core/Square.cpp.i
@@ -273,6 +353,7 @@ src/core/Square.i: src/core/Square.cpp.i
 # target to preprocess a source file
 src/core/Square.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Square.cpp.i
 .PHONY : src/core/Square.cpp.i
 
 src/core/Square.s: src/core/Square.cpp.s
@@ -281,7 +362,35 @@ src/core/Square.s: src/core/Square.cpp.s
 # target to generate assembly for a file
 src/core/Square.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/Square.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/Square.cpp.s
 .PHONY : src/core/Square.cpp.s
+
+src/core/YaltaBoardTopology.o: src/core/YaltaBoardTopology.cpp.o
+.PHONY : src/core/YaltaBoardTopology.o
+
+# target to build an object file
+src/core/YaltaBoardTopology.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/YaltaBoardTopology.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/YaltaBoardTopology.cpp.o
+.PHONY : src/core/YaltaBoardTopology.cpp.o
+
+src/core/YaltaBoardTopology.i: src/core/YaltaBoardTopology.cpp.i
+.PHONY : src/core/YaltaBoardTopology.i
+
+# target to preprocess a source file
+src/core/YaltaBoardTopology.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/YaltaBoardTopology.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/YaltaBoardTopology.cpp.i
+.PHONY : src/core/YaltaBoardTopology.cpp.i
+
+src/core/YaltaBoardTopology.s: src/core/YaltaBoardTopology.cpp.s
+.PHONY : src/core/YaltaBoardTopology.s
+
+# target to generate assembly for a file
+src/core/YaltaBoardTopology.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/core/YaltaBoardTopology.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/src/core/YaltaBoardTopology.cpp.s
+.PHONY : src/core/YaltaBoardTopology.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -475,6 +584,30 @@ src/strategy/HumanConsoleStrategy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/src/strategy/HumanConsoleStrategy.cpp.s
 .PHONY : src/strategy/HumanConsoleStrategy.cpp.s
 
+tests/core_tests.o: tests/core_tests.cpp.o
+.PHONY : tests/core_tests.o
+
+# target to build an object file
+tests/core_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/tests/core_tests.cpp.o
+.PHONY : tests/core_tests.cpp.o
+
+tests/core_tests.i: tests/core_tests.cpp.i
+.PHONY : tests/core_tests.i
+
+# target to preprocess a source file
+tests/core_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/tests/core_tests.cpp.i
+.PHONY : tests/core_tests.cpp.i
+
+tests/core_tests.s: tests/core_tests.cpp.s
+.PHONY : tests/core_tests.s
+
+# target to generate assembly for a file
+tests/core_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/tests/core_tests.cpp.s
+.PHONY : tests/core_tests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -485,9 +618,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... projet-echec-yalta"
+	@echo "... yalta-core-tests"
+	@echo "... src/ai/AlphaBetaAI.o"
+	@echo "... src/ai/AlphaBetaAI.i"
+	@echo "... src/ai/AlphaBetaAI.s"
 	@echo "... src/core/Board.o"
 	@echo "... src/core/Board.i"
 	@echo "... src/core/Board.s"
+	@echo "... src/core/BoardTopology.o"
+	@echo "... src/core/BoardTopology.i"
+	@echo "... src/core/BoardTopology.s"
 	@echo "... src/core/Game.o"
 	@echo "... src/core/Game.i"
 	@echo "... src/core/Game.s"
@@ -503,6 +643,9 @@ help:
 	@echo "... src/core/Square.o"
 	@echo "... src/core/Square.i"
 	@echo "... src/core/Square.s"
+	@echo "... src/core/YaltaBoardTopology.o"
+	@echo "... src/core/YaltaBoardTopology.i"
+	@echo "... src/core/YaltaBoardTopology.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -527,6 +670,9 @@ help:
 	@echo "... src/strategy/HumanConsoleStrategy.o"
 	@echo "... src/strategy/HumanConsoleStrategy.i"
 	@echo "... src/strategy/HumanConsoleStrategy.s"
+	@echo "... tests/core_tests.o"
+	@echo "... tests/core_tests.i"
+	@echo "... tests/core_tests.s"
 .PHONY : help
 
 

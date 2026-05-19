@@ -45,13 +45,13 @@ void ConsoleView::showMoves(const std::vector<Move>& moves) const
 
     for (const Move& move : moves)
     {
-        if (move.getFrom() == nullptr || move.getTo() == nullptr)
+        if (!move.isValid())
         {
             continue;
         }
 
-        std::cout << "  - " << move.getFrom()->getId()
-                  << " -> " << move.getTo()->getId()
+        std::cout << "  - " << move.getFromId()
+                  << " -> " << move.getToId()
                   << " ["
                   << toString(move.getType())
                   << "]";

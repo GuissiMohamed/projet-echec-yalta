@@ -1,0 +1,210 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam monochrome true
+left to right direction
+
+title Diagramme de classes final simplifie - Projet Echecs Yalta a 3 joueurs
+
+package "core (Model)" {
+  class Game {
+    +getBoard()
+    +getCurrentPlayer()
+    +getLegalMovesForPlayer(color)
+    +playMove(move)
+    +isPlayerInCheck(color)
+    +getState()
+  }
+
+  class Board {
+    +getSquare(id)
+    +getSquare(row,col)
+    +toIndex(row,col)
+    +isValid(row,col)
+    +getSquares()
+  }
+
+  class Square {
+    +getId()
+    +isOccupied()
+    +getPiece()
+    +setPiece(piece)
+    +removePiece()
+  }
+
+  class Player {
+    +getName()
+    +getColor()
+    +getPieces()
+    +isEliminated()
+    +getForwardDirection()
+    +getPawnCaptureDirections()
+  }
+
+  class Piece {
+    +getType()
+    +getOwner()
+    +getSquare()
+    +hasMoved()
+    +isCaptured()
+    +getPseudoLegalMoves()
+  }
+
+  class Move {
+    +getFrom()
+    +getTo()
+    +getType()
+    +getPromotionType()
+  }
+
+  enum PlayerColor {
+    Red
+    Blue
+    Green
+    None
+  }
+
+  enum PieceType {
+    King
+    Queen
+    Rook
+    Bishop
+    Knight
+    Pawn
+  }
+
+  enum MoveType {
+    Normal
+    Capture
+    Castling
+    EnPassant
+    Promotion
+  }
+
+  enum GameState {
+    Ongoing
+    Check
+    Stalemate
+    WinByElimination
+    Draw
+  }
+}
+
+package "mvc" {
+  class ConsoleView {
+    +showBoard(game)
+    +showStatus(game)
+    +showMoves(moves)
+    +showMessage(msg)
+  }
+
+  class SFMLView {
+    +render(game, selectedSquare, highlightedMoves)
+    +squareIdFromPixel(pixel)
+    +getWindow()
+  }
+
+  class GameController {
+    +setupDefaultPosition()
+    +run()
+  }
+
+  class SFMLGameController {
+    +setupDefaultPosition()
+    +run()
+  }
+}
+
+package "patterns" {
+  interface ICommand {
+    +execute()
+    +getLabel()
+  }
+
+  class MoveCommand {
+    +execute()
+    +getLabel()
+  }
+}
+
+package "strategy" {
+  interface IMoveStrategy {
+    +chooseMove(game, view, playerColor)
+    +getName()
+  }
+
+  class StrategyDecision {
+    +quitRequested : bool
+    +selectedMove
+  }
+
+  class HumanConsoleStrategy {
+    +chooseMove(...)
+    +getName()
+  }
+
+  class FirstLegalMoveStrategy {
+    +chooseMove(...)
+    +getName()
+  }
+}
+
+package "ai" {
+  class AlphaBetaAI {
+    +chooseBestMove(game, aiColor)
+    -alphaBeta(...)
+    -evaluate(...)
+    -pieceValue(type)
+  }
+}
+
+Game *-- Board
+Board *-- "96" Square
+Game *-- "3" Player
+Game *-- "0..48" Piece
+Player "1" -- "0..16" Piece : owns >
+Piece --> Square : position
+Piece --> Board
+Game ..> Move
+Game --> GameState
+Player --> PlayerColor
+Piece --> PieceType
+Move --> MoveType
+
+GameController --> Game
+GameController --> ConsoleView
+GameController --> IMoveStrategy
+
+SFMLGameController --> Game
+SFMLGameController --> SFMLView
+SFMLGameController --> AlphaBetaAI
+
+MoveCommand ..|> ICommand
+MoveCommand --> Game
+MoveCommand --> Move
+
+HumanConsoleStrategy ..|> IMoveStrategy
+FirstLegalMoveStrategy ..|> IMoveStrategy
+IMoveStrategy --> StrategyDecision
+StrategyDecision --> Move
+
+note bottom of Game
+Classe centrale du moteur :
+- gere la regle du jeu
+- valide les coups
+- detecte echec / pat / victoire
+end note
+
+note bottom of SFMLGameController
+Controleur graphique :
+- gere la selection souris
+- appelle l'IA pour les joueurs automatiques
+end note
+
+note bottom of AlphaBetaAI
+IA basee sur alpha-beta
+multi-thread dans la version finale du projet
+end note
+
+@enduml

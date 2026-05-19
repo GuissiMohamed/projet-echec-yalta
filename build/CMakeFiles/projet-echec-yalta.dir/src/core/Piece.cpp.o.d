@@ -905,5 +905,7 @@ CMakeFiles/projet-echec-yalta.dir/src/core/Piece.cpp.o: \
   /Users/guississ/projet-echec-yalta/include/core/Move.hpp \
   /Users/guississ/projet-echec-yalta/include/core/Types.hpp \
   /Users/guississ/projet-echec-yalta/include/core/Board.hpp \
+  /Users/guississ/projet-echec-yalta/include/core/BoardTopology.hpp \
+  /Users/guississ/projet-echec-yalta/include/core/TopologySquare.hpp \
   /Users/guississ/projet-echec-yalta/include/core/Square.hpp \
   /Users/guississ/projet-echec-yalta/include/core/Player.hpp

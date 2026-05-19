@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/guississ/projet-echec-yalta/include -isystem /usr/local/opt/sfml/include
+CXX_INCLUDES = -I/Users/guississ/projet-echec-yalta/include
 
-CXX_FLAGS = -std=c++17
+CXX_FLAGS = -g -std=c++17
 

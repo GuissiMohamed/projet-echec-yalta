@@ -64,10 +64,12 @@ CMAKE_BINARY_DIR = /Users/guississ/projet-echec-yalta/build
 
 # The main recursive "all" target.
 all: CMakeFiles/projet-echec-yalta.dir/all
+all: CMakeFiles/yalta-core-tests.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/projet-echec-yalta.dir/codegen
+codegen: CMakeFiles/yalta-core-tests.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -76,6 +78,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/projet-echec-yalta.dir/clean
+clean: CMakeFiles/yalta-core-tests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,12 +88,12 @@ clean: CMakeFiles/projet-echec-yalta.dir/clean
 CMakeFiles/projet-echec-yalta.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target projet-echec-yalta"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target projet-echec-yalta"
 .PHONY : CMakeFiles/projet-echec-yalta.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/projet-echec-yalta.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/guississ/projet-echec-yalta/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/guississ/projet-echec-yalta/build/CMakeFiles 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/projet-echec-yalta.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/guississ/projet-echec-yalta/build/CMakeFiles 0
 .PHONY : CMakeFiles/projet-echec-yalta.dir/rule
@@ -102,13 +105,45 @@ projet-echec-yalta: CMakeFiles/projet-echec-yalta.dir/rule
 # codegen rule for target.
 CMakeFiles/projet-echec-yalta.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Finished codegen for target projet-echec-yalta"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Finished codegen for target projet-echec-yalta"
 .PHONY : CMakeFiles/projet-echec-yalta.dir/codegen
 
 # clean rule for target.
 CMakeFiles/projet-echec-yalta.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet-echec-yalta.dir/build.make CMakeFiles/projet-echec-yalta.dir/clean
 .PHONY : CMakeFiles/projet-echec-yalta.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/yalta-core-tests.dir
+
+# All Build rule for target.
+CMakeFiles/yalta-core-tests.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28 "Built target yalta-core-tests"
+.PHONY : CMakeFiles/yalta-core-tests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/yalta-core-tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/guississ/projet-echec-yalta/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/yalta-core-tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/guississ/projet-echec-yalta/build/CMakeFiles 0
+.PHONY : CMakeFiles/yalta-core-tests.dir/rule
+
+# Convenience name for target.
+yalta-core-tests: CMakeFiles/yalta-core-tests.dir/rule
+.PHONY : yalta-core-tests
+
+# codegen rule for target.
+CMakeFiles/yalta-core-tests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/guississ/projet-echec-yalta/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28 "Finished codegen for target yalta-core-tests"
+.PHONY : CMakeFiles/yalta-core-tests.dir/codegen
+
+# clean rule for target.
+CMakeFiles/yalta-core-tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yalta-core-tests.dir/build.make CMakeFiles/yalta-core-tests.dir/clean
+.PHONY : CMakeFiles/yalta-core-tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

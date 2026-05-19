@@ -3,7 +3,6 @@
 #include <sstream>
 
 #include "core/Game.hpp"
-#include "core/Square.hpp"
 
 MoveCommand::MoveCommand(Game& game, const Move& move)
     : m_game(game), m_move(move)
@@ -17,16 +16,16 @@ bool MoveCommand::execute()
 
 std::string MoveCommand::getLabel() const
 {
-    if (m_move.getFrom() == nullptr || m_move.getTo() == nullptr)
+    if (!m_move.isValid())
     {
         return "Commande de coup invalide";
     }
 
     std::ostringstream stream;
     stream << "MoveCommand : "
-           << m_move.getFrom()->getId()
+           << m_move.getFromId()
            << " -> "
-           << m_move.getTo()->getId()
+           << m_move.getToId()
            << " ["
            << toString(m_move.getType())
            << "]";

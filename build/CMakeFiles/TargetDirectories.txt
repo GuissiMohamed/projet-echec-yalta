@@ -1,4 +1,5 @@
 /Users/guississ/projet-echec-yalta/build/CMakeFiles/projet-echec-yalta.dir
+/Users/guississ/projet-echec-yalta/build/CMakeFiles/yalta-core-tests.dir
 /Users/guississ/projet-echec-yalta/build/CMakeFiles/test.dir
 /Users/guississ/projet-echec-yalta/build/CMakeFiles/edit_cache.dir
 /Users/guississ/projet-echec-yalta/build/CMakeFiles/rebuild_cache.dir

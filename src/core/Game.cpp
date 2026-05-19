@@ -1,6 +1,7 @@
 #include "core/Game.hpp"
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <iomanip>
 #include <memory>
@@ -13,13 +14,13 @@ namespace
 {
     std::string formatMoveForMessage(const Move& move)
     {
-        if (move.getFrom() == nullptr || move.getTo() == nullptr)
+        if (!move.isValid())
         {
             return "invalid move";
         }
 
         std::ostringstream stream;
-        stream << move.getFrom()->getId() << " -> " << move.getTo()->getId()
+        stream << move.getFromId() << " -> " << move.getToId()
                << " [" << toString(move.getType()) << "]";
 
         if (move.getType() == MoveType::Promotion)
@@ -29,10 +30,44 @@ namespace
 
         return stream.str();
     }
+
+    int diagonalTargetId(const Board& board, int row, int col, DiagonalDirection direction)
+    {
+        switch (direction)
+        {
+            case DiagonalDirection::UpLeft:
+                return board.toIndex(row - 1, col - 1);
+            case DiagonalDirection::UpRight:
+                return board.toIndex(row - 1, col + 1);
+            case DiagonalDirection::DownLeft:
+                return board.toIndex(row + 1, col - 1);
+            case DiagonalDirection::DownRight:
+                return board.toIndex(row + 1, col + 1);
+            default:
+                return -1;
+        }
+    }
+
+    bool matchesDiagonalDelta(int rowDelta, int colDelta, DiagonalDirection direction)
+    {
+        switch (direction)
+        {
+            case DiagonalDirection::UpLeft:
+                return rowDelta == -1 && colDelta == -1;
+            case DiagonalDirection::UpRight:
+                return rowDelta == -1 && colDelta == 1;
+            case DiagonalDirection::DownLeft:
+                return rowDelta == 1 && colDelta == -1;
+            case DiagonalDirection::DownRight:
+                return rowDelta == 1 && colDelta == 1;
+            default:
+                return false;
+        }
+    }
 }
 
 Game::Game()
-    : m_board(Board::kSquareCount),
+    : m_board(),
       m_currentPlayerIndex(0),
       m_state(GameState::Ongoing),
       m_winner(PlayerColor::None),
@@ -47,7 +82,7 @@ Game::Game()
 }
 
 Game::Game(const Game& other)
-    : m_board(Board::kSquareCount),
+    : m_board(other.getBoard().cloneTopology()),
       m_currentPlayerIndex(other.m_currentPlayerIndex),
       m_state(other.m_state),
       m_winner(other.m_winner),
@@ -225,7 +260,7 @@ std::vector<Move> Game::getCandidateMovesForPiece(const Piece& piece)
 
     for (const Move& move : moves)
     {
-        if (move.getFrom() == nullptr || move.getTo() == nullptr)
+        if (!move.isValid())
         {
             continue;
         }
@@ -235,14 +270,20 @@ std::vector<Move> Game::getCandidateMovesForPiece(const Piece& piece)
             continue;
         }
 
+        const Square* toSquare = move.resolveTo(m_board);
+        if (toSquare == nullptr)
+        {
+            continue;
+        }
+
         if (piece.getType() == PieceType::Pawn
             && move.getType() != MoveType::EnPassant
-            && isPromotionSquare(piece.getOwner()->getColor(), *move.getTo()))
+            && isPromotionSquare(piece.getOwner()->getColor(), *toSquare))
         {
-            decoratedMoves.emplace_back(move.getFrom(), move.getTo(), MoveType::Promotion, PieceType::Queen);
-            decoratedMoves.emplace_back(move.getFrom(), move.getTo(), MoveType::Promotion, PieceType::Rook);
-            decoratedMoves.emplace_back(move.getFrom(), move.getTo(), MoveType::Promotion, PieceType::Bishop);
-            decoratedMoves.emplace_back(move.getFrom(), move.getTo(), MoveType::Promotion, PieceType::Knight);
+            decoratedMoves.emplace_back(move.getFromId(), move.getToId(), MoveType::Promotion, PieceType::Queen);
+            decoratedMoves.emplace_back(move.getFromId(), move.getToId(), MoveType::Promotion, PieceType::Rook);
+            decoratedMoves.emplace_back(move.getFromId(), move.getToId(), MoveType::Promotion, PieceType::Bishop);
+            decoratedMoves.emplace_back(move.getFromId(), move.getToId(), MoveType::Promotion, PieceType::Knight);
             continue;
         }
 
@@ -343,7 +384,7 @@ std::vector<Move> Game::getSpecialMovesForPiece(const Piece& piece)
                     continue;
                 }
 
-                moves.emplace_back(piece.getSquare(), secondKingSquare, MoveType::Castling);
+                moves.emplace_back(piece.getSquare()->getId(), secondKingSquare->getId(), MoveType::Castling);
             }
         }
     }
@@ -366,21 +407,22 @@ std::vector<Move> Game::getSpecialMovesForPiece(const Piece& piece)
             {
                 const int currentRow = m_board.getRow(piece.getSquare()->getId());
                 const int currentCol = m_board.getCol(piece.getSquare()->getId());
-                const auto captureDirections = piece.getOwner()->getPawnCaptureDirections();
 
-                for (const auto& [rowDelta, colDelta] : captureDirections)
+                const auto [captureA, captureB] = piece.getOwner()->getPawnCaptureDirections();
+                const std::array<DiagonalDirection, 2> captureDirections = {captureA, captureB};
+
+                for (DiagonalDirection direction : captureDirections)
                 {
-                    const int targetRow = currentRow + rowDelta;
-                    const int targetCol = currentCol + colDelta;
-                    if (!m_board.isValid(targetRow, targetCol))
+                    const int targetId = diagonalTargetId(m_board, currentRow, currentCol, direction);
+                    if (targetId < 0)
                     {
                         continue;
                     }
 
-                    Square* candidateSquare = m_board.getSquare(targetRow, targetCol);
+                    Square* candidateSquare = m_board.getSquare(targetId);
                     if (candidateSquare == targetSquare && !candidateSquare->isOccupied())
                     {
-                        moves.emplace_back(piece.getSquare(), candidateSquare, MoveType::EnPassant);
+                        moves.emplace_back(piece.getSquare()->getId(), candidateSquare->getId(), MoveType::EnPassant);
                     }
                 }
             }
@@ -474,13 +516,12 @@ bool Game::doesPieceAttackSquare(const Piece& piece, const Square& target) const
 
     if (piece.getType() == PieceType::Pawn)
     {
-        const auto captureDirections = piece.getOwner()->getPawnCaptureDirections();
-        for (const auto& [captureRowDelta, captureColDelta] : captureDirections)
+        const auto [captureA, captureB] = piece.getOwner()->getPawnCaptureDirections();
+
+        if (matchesDiagonalDelta(rowDelta, colDelta, captureA)
+            || matchesDiagonalDelta(rowDelta, colDelta, captureB))
         {
-            if (rowDelta == captureRowDelta && colDelta == captureColDelta)
-            {
-                return true;
-            }
+            return true;
         }
 
         return false;
@@ -650,12 +691,13 @@ bool Game::isInsufficientMaterialDraw() const
 
 bool Game::wouldCaptureEnemyKing(const Move& move, PlayerColor movingColor) const
 {
-    if (move.getTo() == nullptr || !move.getTo()->isOccupied())
+    const Square* toSquare = move.resolveTo(m_board);
+    if (toSquare == nullptr || !toSquare->isOccupied())
     {
         return false;
     }
 
-    Piece* targetPiece = move.getTo()->getPiece();
+    Piece* targetPiece = toSquare->getPiece();
     return targetPiece != nullptr
         && targetPiece->getType() == PieceType::King
         && targetPiece->getOwner() != nullptr
@@ -664,12 +706,20 @@ bool Game::wouldCaptureEnemyKing(const Move& move, PlayerColor movingColor) cons
 
 bool Game::applyMoveInternal(const Move& move, MoveStateSnapshot& snapshot)
 {
-    if (move.getFrom() == nullptr || move.getTo() == nullptr || !move.getFrom()->isOccupied())
+    if (!move.isValid())
     {
         return false;
     }
 
-    Piece* movedPiece = move.getFrom()->getPiece();
+    Square* fromSquare = move.resolveFrom(m_board);
+    Square* toSquare = move.resolveTo(m_board);
+
+    if (fromSquare == nullptr || toSquare == nullptr || !fromSquare->isOccupied())
+    {
+        return false;
+    }
+
+    Piece* movedPiece = fromSquare->getPiece();
     if (movedPiece == nullptr)
     {
         return false;
@@ -678,8 +728,8 @@ bool Game::applyMoveInternal(const Move& move, MoveStateSnapshot& snapshot)
     snapshot.movedPiece = movedPiece;
     snapshot.movedPieceOriginalType = movedPiece->getType();
     snapshot.movedPieceOriginalHasMoved = movedPiece->hasMoved();
-    snapshot.fromSquare = move.getFrom();
-    snapshot.toSquare = move.getTo();
+    snapshot.fromSquare = fromSquare;
+    snapshot.toSquare = toSquare;
     snapshot.enPassantTargetBefore = m_enPassantTargetSquareId;
     snapshot.enPassantVictimBefore = m_enPassantVictimSquareId;
     snapshot.enPassantRemainingBefore = m_enPassantRemainingResponses;
@@ -700,13 +750,13 @@ bool Game::applyMoveInternal(const Move& move, MoveStateSnapshot& snapshot)
         snapshot.capturedPiece->setSquare(nullptr);
         snapshot.capturedPiece->setCaptured(true);
     }
-    else if (move.getTo()->isOccupied())
+    else if (toSquare->isOccupied())
     {
-        snapshot.capturedPiece = move.getTo()->getPiece();
-        snapshot.capturedPieceOriginalSquare = move.getTo();
+        snapshot.capturedPiece = toSquare->getPiece();
+        snapshot.capturedPieceOriginalSquare = toSquare;
         snapshot.capturedPieceOriginalCapturedState = snapshot.capturedPiece->isCaptured();
 
-        move.getTo()->removePiece();
+        toSquare->removePiece();
         snapshot.capturedPiece->setSquare(nullptr);
         snapshot.capturedPiece->setCaptured(true);
     }
@@ -1104,4 +1154,4 @@ void Game::printBoard(std::ostream& output) const
 
         output << '\n';
     }
-}
+} 

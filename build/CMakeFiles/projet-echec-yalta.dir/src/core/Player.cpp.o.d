@@ -902,4 +902,6 @@ CMakeFiles/projet-echec-yalta.dir/src/core/Player.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
+  /Users/guississ/projet-echec-yalta/include/core/BoardTopology.hpp \
+  /Users/guississ/projet-echec-yalta/include/core/TopologySquare.hpp \
   /Users/guississ/projet-echec-yalta/include/core/Types.hpp

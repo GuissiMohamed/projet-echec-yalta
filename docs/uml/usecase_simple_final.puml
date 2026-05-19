@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Joueur
+actor IA
+
+rectangle "Projet Echec Yalta" {
+  usecase "Lancer une partie" as UC1
+  usecase "Choisir le mode de jeu" as UC2
+  usecase "Selectionner une piece" as UC3
+  usecase "Jouer un coup" as UC4
+  usecase "Consulter l'etat\nde la partie" as UC5
+  usecase "Quitter la partie" as UC6
+  usecase "Calculer un coup IA" as UC7
+}
+
+Joueur --> UC1
+Joueur --> UC2
+Joueur --> UC3
+Joueur --> UC4
+Joueur --> UC5
+Joueur --> UC6
+
+IA --> UC7
+
+UC4 .> UC5 : <<include>>
+UC2 .> UC7 : <<extend>>
+@enduml

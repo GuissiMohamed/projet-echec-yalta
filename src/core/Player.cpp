@@ -40,40 +40,32 @@ void Player::setEliminated(bool eliminated)
     m_eliminated = eliminated;
 }
 
-std::pair<int, int> Player::getForwardDirection() const
+OrthogonalDirection Player::getPawnForwardDirection() const
 {
     switch (m_color)
     {
         case PlayerColor::Red:
-            return {-1, 0};
+            return OrthogonalDirection::Up;
         case PlayerColor::Blue:
-            return {1, 0};
+            return OrthogonalDirection::Down;
         case PlayerColor::Green:
-            return {0, -1};
+            return OrthogonalDirection::Left;
         default:
-            return {0, 0};
+            return OrthogonalDirection::Up;
     }
 }
 
-std::vector<std::pair<int, int>> Player::getPawnCaptureDirections() const
+std::pair<DiagonalDirection, DiagonalDirection> Player::getPawnCaptureDirections() const
 {
-    const auto [forwardRow, forwardCol] = getForwardDirection();
-
-    if (forwardRow != 0)
+    switch (m_color)
     {
-        return {
-            {forwardRow, -1},
-            {forwardRow, 1}
-        };
+        case PlayerColor::Red:
+            return {DiagonalDirection::UpLeft, DiagonalDirection::UpRight};
+        case PlayerColor::Blue:
+            return {DiagonalDirection::DownLeft, DiagonalDirection::DownRight};
+        case PlayerColor::Green:
+            return {DiagonalDirection::UpLeft, DiagonalDirection::DownLeft};
+        default:
+            return {DiagonalDirection::UpLeft, DiagonalDirection::UpRight};
     }
-
-    if (forwardCol != 0)
-    {
-        return {
-            {-1, forwardCol},
-            {1, forwardCol}
-        };
-    }
-
-    return {};
 }
