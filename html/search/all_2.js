@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['capture_0',['Capture',['../_types_8hpp.html#ab152e38addc9865a033ed991583c1395a44a50f07b4bdc57740901280f9eddaf5',1,'Types.hpp']]],
+  ['capturedpiece_1',['capturedPiece',['../struct_game_1_1_move_state_snapshot.html#a94df71c337cb71a00d7f178afc914315',1,'Game::MoveStateSnapshot']]],
+  ['capturedpieceoriginalcapturedstate_2',['capturedPieceOriginalCapturedState',['../struct_game_1_1_move_state_snapshot.html#a782a9ccdf3892ed2f0954730add7bd77',1,'Game::MoveStateSnapshot']]],
+  ['capturedpieceoriginalsquare_3',['capturedPieceOriginalSquare',['../struct_game_1_1_move_state_snapshot.html#a52e0dc40eb6123e9bf724326df1fa0a1',1,'Game::MoveStateSnapshot']]],
+  ['castling_4',['Castling',['../_types_8hpp.html#ab152e38addc9865a033ed991583c1395a115c1b0810e4168b4b8e68b7f144cca8',1,'Types.hpp']]],
+  ['cellcenter_5',['cellCenter',['../class_s_f_m_l_view.html#a533d277287151b153a46d8283f6033f3',1,'SFMLView']]],
+  ['cellquad_6',['cellQuad',['../class_s_f_m_l_view.html#ab00c1d5e48e2e9f862eb3c6bf44a4fa4',1,'SFMLView']]],
+  ['check_7',['Check',['../_types_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a060bf2d587991d8f090a1309b285291c',1,'Types.hpp']]],
+  ['choosebestmove_8',['chooseBestMove',['../class_alpha_beta_a_i.html#a602b4236b68e075811610e9ebd9047f3',1,'AlphaBetaAI']]],
+  ['choosemove_9',['chooseMove',['../class_first_legal_move_strategy.html#a82e4017fd4bd276c4d2e27cf9c721392',1,'FirstLegalMoveStrategy::chooseMove()'],['../class_human_console_strategy.html#aa86dc8e3968d877ece18f2ff396a94eb',1,'HumanConsoleStrategy::chooseMove()'],['../class_i_move_strategy.html#ae175bb2de3ead2e5386934819067242a',1,'IMoveStrategy::chooseMove()']]],
+  ['clearenpassantstate_10',['clearEnPassantState',['../class_game.html#ac9223421e9ebbf46460ed4274bc6424c',1,'Game']]],
+  ['clearpieces_11',['clearPieces',['../class_player.html#a3d729af858d79f44fc91a7f2dadf83b7',1,'Player']]],
+  ['clone_12',['clone',['../class_board_topology.html#a43ac4aba90bc1ac6168c18b0f2c8ef16',1,'BoardTopology::clone()'],['../class_rectangular_board_topology.html#aa99cf285c60441f39a98832f724ee599',1,'RectangularBoardTopology::clone()'],['../class_yalta_board_topology.html#af99a8104f28b989dbd0d1a4ab19b64c4',1,'YaltaBoardTopology::clone()']]],
+  ['clonetopology_13',['cloneTopology',['../class_board.html#a535aeb45a58592e677f78fe7ab8b8140',1,'Board']]],
+  ['colorforplayer_14',['colorForPlayer',['../class_s_f_m_l_view.html#a96d5354529208c5b3ea9f4ed08b85f8e',1,'SFMLView']]],
+  ['consoleview_15',['ConsoleView',['../class_console_view.html',1,'']]],
+  ['consoleview_2ecpp_16',['ConsoleView.cpp',['../_console_view_8cpp.html',1,'']]],
+  ['consoleview_2ehpp_17',['ConsoleView.hpp',['../_console_view_8hpp.html',1,'']]]
+];

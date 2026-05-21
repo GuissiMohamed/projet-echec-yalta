@@ -1,3 +1,17 @@
+/**
+ * @struct StrategyDecision
+ * @brief Résultat d'une stratégie de décision
+ *
+ * Contient :
+ * - un coup choisi
+ * - un indicateur de validité
+ */
+struct StrategyDecision
+{
+    Move move;
+    bool valid;
+};
+
 #pragma once
 
 #include <optional>

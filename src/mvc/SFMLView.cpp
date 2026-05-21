@@ -230,7 +230,13 @@ void SFMLView::drawPieces(const Game& game)
 void SFMLView::drawPiece(const Piece& piece, sf::Vector2f center, float radius)
 {
     const sf::Color baseColor = colorForPlayer(piece.getOwner()->getColor());
-    const sf::Color markerColor = sf::Color(20, 20, 20);
+
+const bool darkPiece =
+    piece.getOwner()->getColor() == PlayerColor::Blue;
+
+const sf::Color markerColor = darkPiece
+    ? sf::Color(245, 245, 245)
+    : sf::Color(20, 20, 20);
 
     sf::CircleShape body(radius);
     body.setOrigin({radius, radius});

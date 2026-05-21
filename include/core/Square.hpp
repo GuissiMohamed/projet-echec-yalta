@@ -1,3 +1,10 @@
+/**
+ * @class Square
+ * @brief Représente une case du plateau
+ *
+ * Une case peut contenir une pièce ou être vide.
+ */
+
 #pragma once
 
 class Piece;

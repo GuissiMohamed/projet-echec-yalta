@@ -1,3 +1,13 @@
+/**
+ * @class SFMLGameController
+ * @brief Contrôleur principal de l'interface graphique
+ *
+ * Gère :
+ * - les clics utilisateur
+ * - les tours de jeu
+ * - les interactions avec le moteur
+ */
+
 #pragma once
 
 #include <SFML/System/Clock.hpp>

@@ -1,0 +1,25 @@
+var NAVTREEINDEX2 =
+{
+"struct_game_1_1_move_state_snapshot.html#abf43ae93509bc81038b17566bb7960e3":[0,0,5,0,12],
+"struct_game_1_1_move_state_snapshot.html#adbae87cf474f9785510f27cb8aa0160f":[0,0,5,0,7],
+"struct_game_1_1_move_state_snapshot.html#afb68be03c6787d3fdec64bcc161b6662":[0,0,5,0,3],
+"struct_s_f_m_l_controller_config.html":[0,0,15],
+"struct_s_f_m_l_controller_config.html#a09ee544c4d77c046188bb55f4b5dd408":[0,0,15,4],
+"struct_s_f_m_l_controller_config.html#a3ffcad74fbdbb24d285accaf4996092c":[0,0,15,0],
+"struct_s_f_m_l_controller_config.html#a6d15f9f1ac9ebf12c840d9aa0bce7a24":[0,0,15,2],
+"struct_s_f_m_l_controller_config.html#a9fd68c4dbd7a6a9d242802ef03ddc59f":[0,0,15,1],
+"struct_s_f_m_l_controller_config.html#ad7b83b523891f43038f77e93c3b2970f":[0,0,15,3],
+"struct_strategy_decision.html":[0,0,19],
+"struct_strategy_decision.html#a7bd76d8273b1863c262b1bf21276f4d3":[0,0,19,1],
+"struct_strategy_decision.html#a9bb11e7b620af5ec1d90880a9c0cc01d":[0,0,19,0],
+"struct_strategy_decision.html#aac8cab53019b8cb7b6076dad5ee25e6e":[0,0,19,3],
+"struct_strategy_decision.html#af4623a82324c823adbc827f4e7143e57":[0,0,19,2],
+"struct_topology_square.html":[0,0,20],
+"struct_topology_square.html#a091f75f58ee63296d9f46e4ec3381a80":[0,0,20,4],
+"struct_topology_square.html#a149558618e3bf42995941225c8d4d1e6":[0,0,20,5],
+"struct_topology_square.html#a1de5e0d977e1749501be409e85aad0bd":[0,0,20,6],
+"struct_topology_square.html#a3629cba45052b31b8adb3c7eb49cb6d1":[0,0,20,0],
+"struct_topology_square.html#a5105f60fc8eebdb77cfb9ea65f660cef":[0,0,20,1],
+"struct_topology_square.html#ac730d3d625ae4542ea31a7cdf231fada":[0,0,20,3],
+"struct_topology_square.html#ae6c1da2a6445a1830ab969d5207d9c68":[0,0,20,2]
+};

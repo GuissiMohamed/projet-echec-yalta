@@ -1,3 +1,10 @@
+/**
+ * @class Board
+ * @brief Représente le plateau de jeu
+ *
+ * Le plateau contient 96 cases organisées en grille logique.
+ * Il permet d'accéder aux cases et de gérer leur contenu.
+ */
 #pragma once
 
 #include <memory>

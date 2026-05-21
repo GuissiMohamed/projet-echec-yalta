@@ -1,0 +1,91 @@
+\chapter{♟️ Projet Échecs Yalta }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{♟️ Projet Échecs Yalta@{♟️ Projet Échecs Yalta}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{📌 Description}{📌 Description}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Ce projet implémente un moteur de jeu d’échecs à 3 joueurs inspiré du jeu Yalta.
+
+Il repose sur une architecture modulaire en C++ avec :\+
+\begin{DoxyItemize}
+\item un moteur de règles complet
+\item une intelligence artificielle basée sur alpha-\/beta
+\item une interface graphique avec SFML
+\item des tests automatisés
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{🧱 Architecture}{🧱 Architecture}}\label{md__r_e_a_d_m_e_autotoc_md3}
+Le projet est structuré en plusieurs modules :\+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily core/\+} :\+ logique du jeu (Game, Board, Piece, Move…)
+\item {\ttfamily mvc/\+} :\+ interface graphique et contrôleur
+\item {\ttfamily ai/\+} :\+ intelligence artificielle (Alpha\+Beta)
+\item {\ttfamily strategy/\+} :\+ stratégies de décision
+\item {\ttfamily patterns/\+} :\+ implémentation des design patterns
+\item {\ttfamily tests/\+} :\+ tests unitaires
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{🎯 Fonctionnalités}{🎯 Fonctionnalités}}\label{md__r_e_a_d_m_e_autotoc_md5}
+✔ Jeu à 3 joueurs (Rouge, Bleu, Vert) ~\newline
+ ✔ Génération des coups légaux ~\newline
+ ✔ Gestion des règles :\+
+\begin{DoxyItemize}
+\item échec /\+ échec et mat ~\newline
+
+\item pat ~\newline
+
+\item promotion ~\newline
+
+\item roque ~\newline
+
+\item prise en passant ~\newline
+
+\end{DoxyItemize}
+
+✔ Intelligence artificielle :\+
+\begin{DoxyItemize}
+\item algorithme Alpha-\/\+Beta
+\item profondeur configurable
+\end{DoxyItemize}
+
+✔ Interface graphique (SFML)
+
+✔ Tests automatisés (CTest)
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{🧠 Intelligence Artificielle}{🧠 Intelligence Artificielle}}\label{md__r_e_a_d_m_e_autotoc_md7}
+L’\+IA repose sur l’algorithme {\bfseries{Alpha-\/\+Beta}} :\+
+
+
+\begin{DoxyItemize}
+\item exploration des coups possibles
+\item simulation des états du jeu
+\item évaluation des positions
+\item optimisation avec élagage alpha-\/beta
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{🧩 Design Patterns utilisés}{🧩 Design Patterns utilisés}}\label{md__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\bfseries{Strategy}} → choix du type de joueur (humain /\+ IA)
+\item {\bfseries{Command}} → encapsulation des coups
+\item {\bfseries{MVC}} → séparation logique /\+ affichage /\+ contrôle
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{🖥️ Compilation}{🖥️ Compilation}}\label{md__r_e_a_d_m_e_autotoc_md11}
+\`{}\`{}\`{}bash cmake -\/S . -\/B build -\/DCMAKE\+\_\+\+BUILD\+\_\+\+TYPE=Debug cmake --build build -\/j
+
+▶️ Exécution ./\+build/\+projet-\/echec-\/yalta 🧪 Tests ctest --test-\/dir build --output-\/on-\/failure 📚 Documentation Documentation générée avec Doxygen :\+
+
+doxygen Doxyfile
+
+Puis ouvrir :\+
+
+html/\+index.\+html
+
+🚀 Perspectives amélioration du rendu graphique optimisation de l’\+IA adaptation complète au plateau réel Yalta 

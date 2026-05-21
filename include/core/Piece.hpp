@@ -1,3 +1,13 @@
+/**
+ * @class Piece
+ * @brief Représente une pièce du jeu
+ *
+ * Une pièce possède :
+ * - un type (roi, reine, etc.)
+ * - un joueur propriétaire
+ * - une position
+ */
+
 #pragma once
 
 #include <vector>

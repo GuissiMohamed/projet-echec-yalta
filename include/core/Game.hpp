@@ -1,3 +1,16 @@
+/**
+ * @class Game
+ * @brief Classe principale du moteur du jeu Yalta
+ *
+ * Cette classe gère :
+ * - le plateau
+ * - les joueurs
+ * - les pièces
+ * - les règles du jeu
+ * - les coups
+ * - les états de la partie (échec, victoire, nulle)
+ */
+
 #pragma once
 
 #include <iosfwd>
@@ -16,7 +29,16 @@ class Square;
 class Game
 {
 public:
+    /**
+     * @brief Constructeur du jeu
+     */
     Game();
+
+    /**
+     * @brief Joue un coup s'il est valide
+     * @param move coup à exécuter
+     * @return true si le coup a été joué
+     */
     Game(const Game& other);
     ~Game();
 
@@ -44,6 +66,10 @@ public:
     bool isPlayerStalemated(PlayerColor color);
 
     bool playMove(const Move& move);
+
+    /**
+     * @brief Retourne tous les coups légaux d’un joueur
+     */
 
     int getActivePlayerCount() const;
     GameState getState() const;

@@ -1,3 +1,10 @@
+ /**
+ * @class MoveCommand
+ * @brief Implémentation du pattern Command
+ *
+ * Encapsule un coup à exécuter sur le jeu.
+ */
+
 #pragma once
 
 #include <string>

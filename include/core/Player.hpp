@@ -1,3 +1,14 @@
+/**
+ * @class Player
+ * @brief Représente un joueur
+ *
+ * Un joueur possède :
+ * - un nom
+ * - une couleur
+ * - une liste de pièces
+ */
+
+
 #pragma once
 
 #include <string>

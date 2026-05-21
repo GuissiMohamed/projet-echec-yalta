@@ -1,3 +1,11 @@
+/**
+ * @class AlphaBetaAI
+ * @brief Intelligence artificielle basée sur l'algorithme alpha-beta
+ *
+ * Cette IA permet de choisir le meilleur coup en simulant plusieurs coups
+ * en avance et en évaluant les positions.
+ */
+
 #include "ai/AlphaBetaAI.hpp"
 
 #include <algorithm>

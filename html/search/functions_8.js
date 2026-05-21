@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['initializesquares_0',['initializeSquares',['../class_board.html#ac3a241bf3cd4b85fdccf7f90ef5844fb',1,'Board']]],
+  ['isactivesquare_1',['isActiveSquare',['../class_board.html#a5df3be7e04a9825e41c5501ef24d016d',1,'Board::isActiveSquare()'],['../class_board_topology.html#a9c46eb3be2da05216ec46e53819ab3c0',1,'BoardTopology::isActiveSquare()'],['../class_rectangular_board_topology.html#aae0f3ec3268d64cdcd84f78f621e54f8',1,'RectangularBoardTopology::isActiveSquare()'],['../class_yalta_board_topology.html#aaba2544826371507efbe8aa89516fb43',1,'YaltaBoardTopology::isActiveSquare()']]],
+  ['isaicontrolled_2',['isAIControlled',['../class_s_f_m_l_game_controller.html#acedf10fd6bf44c902251d1153b282a1a',1,'SFMLGameController']]],
+  ['iscaptured_3',['isCaptured',['../class_piece.html#a82021e5eec32bf200cb66e6838c7e42d',1,'Piece']]],
+  ['iseliminated_4',['isEliminated',['../class_player.html#a7aacef142ba14d6af7a6dfcb8ef327cd',1,'Player']]],
+  ['ishumanturn_5',['isHumanTurn',['../class_s_f_m_l_game_controller.html#af1c7db451ffed403c0dddf16e07be872',1,'SFMLGameController']]],
+  ['isinsufficientmaterialdraw_6',['isInsufficientMaterialDraw',['../class_game.html#a12e11f32467be85550ca94b399b3776c',1,'Game']]],
+  ['isoccupied_7',['isOccupied',['../class_square.html#ac36a72179614062e9b6ffa395f505621',1,'Square']]],
+  ['isplayercheckmated_8',['isPlayerCheckmated',['../class_game.html#a68d730933377d11fc0e485e46c470916',1,'Game']]],
+  ['isplayerincheck_9',['isPlayerInCheck',['../class_game.html#ad11c1877413967d12c5769983967da7c',1,'Game']]],
+  ['isplayerstalemated_10',['isPlayerStalemated',['../class_game.html#a5f0d05ca342c1d728e37a249ddb51156',1,'Game']]],
+  ['ispromotionsquare_11',['isPromotionSquare',['../class_game.html#acb0a37505b1df58946ed64c772edfdb4',1,'Game']]],
+  ['issessionfinished_12',['isSessionFinished',['../class_game_controller.html#abbc80eac6f988c12141f3a4098f1b79d',1,'GameController::isSessionFinished()'],['../class_s_f_m_l_game_controller.html#a40cbd962d36136aa6f2bf0e300874d3f',1,'SFMLGameController::isSessionFinished()']]],
+  ['issquareattackedbyopponents_13',['isSquareAttackedByOpponents',['../class_game.html#adcbf8851cd7b31e6fd58d4d7c6eaf086',1,'Game']]],
+  ['isvalid_14',['isValid',['../class_board.html#a3a001649c02aff3edf323e3b3119e8e7',1,'Board::isValid()'],['../class_move.html#a6e80a6c039ba805bac3ff6402c56b76c',1,'Move::isValid()']]],
+  ['isvalidcoordinate_15',['isValidCoordinate',['../class_board_topology.html#acdbb57fcbcadd388c33473fcc413f895',1,'BoardTopology::isValidCoordinate()'],['../class_rectangular_board_topology.html#ab517604ae015540fb1cda235e698e82c',1,'RectangularBoardTopology::isValidCoordinate()'],['../class_yalta_board_topology.html#a064622c8a29e661e64faf3b3d1d80d07',1,'YaltaBoardTopology::isValidCoordinate()']]]
+];

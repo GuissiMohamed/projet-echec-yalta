@@ -1,3 +1,10 @@
+/**
+ * @class HumanConsoleStrategy
+ * @brief Stratégie de jeu pour un joueur humain
+ *
+ * Permet de récupérer un coup depuis la console.
+ */
+
 #pragma once
 
 #include "strategy/IMoveStrategy.hpp"

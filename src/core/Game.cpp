@@ -76,9 +76,9 @@ Game::Game()
       m_enPassantVictimSquareId(-1),
       m_enPassantRemainingResponses(0)
 {
-    m_players.emplace_back(std::make_unique<Player>("Alice", PlayerColor::Red));
-    m_players.emplace_back(std::make_unique<Player>("Bob", PlayerColor::Blue));
-    m_players.emplace_back(std::make_unique<Player>("Charlie", PlayerColor::Green));
+    m_players.emplace_back(std::make_unique<Player>("Mohamed", PlayerColor::Red));
+    m_players.emplace_back(std::make_unique<Player>("Guissi", PlayerColor::Blue));
+    m_players.emplace_back(std::make_unique<Player>("", PlayerColor::Green));
 }
 
 Game::Game(const Game& other)

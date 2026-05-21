@@ -1,0 +1,25 @@
+var annotated_dup =
+[
+    [ "AlphaBetaAI", "class_alpha_beta_a_i.html", "class_alpha_beta_a_i" ],
+    [ "Board", "class_board.html", "class_board" ],
+    [ "BoardTopology", "class_board_topology.html", "class_board_topology" ],
+    [ "ConsoleView", "class_console_view.html", "class_console_view" ],
+    [ "FirstLegalMoveStrategy", "class_first_legal_move_strategy.html", "class_first_legal_move_strategy" ],
+    [ "Game", "class_game.html", "class_game" ],
+    [ "GameController", "class_game_controller.html", "class_game_controller" ],
+    [ "HumanConsoleStrategy", "class_human_console_strategy.html", "class_human_console_strategy" ],
+    [ "ICommand", "class_i_command.html", "class_i_command" ],
+    [ "IMoveStrategy", "class_i_move_strategy.html", "class_i_move_strategy" ],
+    [ "Move", "class_move.html", "class_move" ],
+    [ "MoveCommand", "class_move_command.html", "class_move_command" ],
+    [ "Piece", "class_piece.html", "class_piece" ],
+    [ "Player", "class_player.html", "class_player" ],
+    [ "RectangularBoardTopology", "class_rectangular_board_topology.html", "class_rectangular_board_topology" ],
+    [ "SFMLControllerConfig", "struct_s_f_m_l_controller_config.html", "struct_s_f_m_l_controller_config" ],
+    [ "SFMLGameController", "class_s_f_m_l_game_controller.html", "class_s_f_m_l_game_controller" ],
+    [ "SFMLView", "class_s_f_m_l_view.html", "class_s_f_m_l_view" ],
+    [ "Square", "class_square.html", "class_square" ],
+    [ "StrategyDecision", "struct_strategy_decision.html", "struct_strategy_decision" ],
+    [ "TopologySquare", "struct_topology_square.html", "struct_topology_square" ],
+    [ "YaltaBoardTopology", "class_yalta_board_topology.html", "class_yalta_board_topology" ]
+];

@@ -3,10 +3,6 @@
 #include <string>
 
 // Représentation actuelle du projet :
-// - plateau de 96 cases modélisé comme une grille 8 x 12
-// - 3 joueurs : Red, Blue, Green
-// Certaines règles Yalta exactes devront être ajustées plus tard
-// si le diagramme UML et la topologie finale du plateau évoluent.
 
 enum class PlayerColor
 {

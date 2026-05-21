@@ -1,3 +1,13 @@
+/**
+ * @class Move
+ * @brief Représente un coup dans le jeu
+ *
+ * Un coup contient :
+ * - une case de départ
+ * - une case d'arrivée
+ * - un type (normal, roque, promotion...)
+ */
+
 #pragma once
 
 #include "core/Types.hpp"

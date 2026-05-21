@@ -1,0 +1,27 @@
+var class_s_f_m_l_game_controller =
+[
+    [ "SFMLGameController", "class_s_f_m_l_game_controller.html#a17cc358da3db2085bf322b760f972a8e", null ],
+    [ "getAIFor", "class_s_f_m_l_game_controller.html#a2b6297dc803cb59253e103e1117444b3", null ],
+    [ "handleBoardClick", "class_s_f_m_l_game_controller.html#a186632d1a72a53bce21b957cf46ddcd7", null ],
+    [ "isAIControlled", "class_s_f_m_l_game_controller.html#acedf10fd6bf44c902251d1153b282a1a", null ],
+    [ "isHumanTurn", "class_s_f_m_l_game_controller.html#af1c7db451ffed403c0dddf16e07be872", null ],
+    [ "isSessionFinished", "class_s_f_m_l_game_controller.html#a40cbd962d36136aa6f2bf0e300874d3f", null ],
+    [ "placeHorizontalArmy", "class_s_f_m_l_game_controller.html#aeb6050a1329738f15d756c81856135df", null ],
+    [ "placeVerticalArmy", "class_s_f_m_l_game_controller.html#ab7d234f27064057f0e4ce5e84915f8b3", null ],
+    [ "processAITurn", "class_s_f_m_l_game_controller.html#a259ac8cb4eb48167e141cf89b5cfc551", null ],
+    [ "resetSelection", "class_s_f_m_l_game_controller.html#a0dbaceb43d342b2c004fd03dc0cbaad0", null ],
+    [ "run", "class_s_f_m_l_game_controller.html#a8abd992d266ed781da5790c4fe56e07a", null ],
+    [ "selectSquare", "class_s_f_m_l_game_controller.html#af90143731d440ee32f7b20cd2522882f", null ],
+    [ "setupDefaultPosition", "class_s_f_m_l_game_controller.html#acce35843666f9f8e8d37c3dadb05fff3", null ],
+    [ "tryPlayMoveTo", "class_s_f_m_l_game_controller.html#a1f475ebbbda8be12fcb4301c653c5212", null ],
+    [ "updateWindowTitle", "class_s_f_m_l_game_controller.html#ab80610bbb032b78c62222bebf2d43053", null ],
+    [ "m_aiClock", "class_s_f_m_l_game_controller.html#a038ca727b1f835f58d53bd0551ec50dd", null ],
+    [ "m_blueAI", "class_s_f_m_l_game_controller.html#a692fe191380ddf213cc3f267d0d8ce78", null ],
+    [ "m_config", "class_s_f_m_l_game_controller.html#a43d9330736ba66f0f87daab92fb7e733", null ],
+    [ "m_game", "class_s_f_m_l_game_controller.html#a57ec239ccc33b07026692abd531f0c4d", null ],
+    [ "m_greenAI", "class_s_f_m_l_game_controller.html#ace09babb19a741667673ca66cb446649", null ],
+    [ "m_redAI", "class_s_f_m_l_game_controller.html#a100187330c92f2d6031bb29f5422ada2", null ],
+    [ "m_selectedMoves", "class_s_f_m_l_game_controller.html#adf13b9c99c5b36a37e9ebb1d981f5501", null ],
+    [ "m_selectedSquare", "class_s_f_m_l_game_controller.html#a69fb91640801450dcbb64ae24562d060", null ],
+    [ "m_view", "class_s_f_m_l_game_controller.html#ae9daa4fdafc10ba817cefec134cf12ab", null ]
+];
